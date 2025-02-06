@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "news-i-created-this-new-blog-using-ruby-jekyll-and-al-folio-to-act-as-a-kind-of-writing-space-for-my-hobbies-and-research-needs",
+        },{id: "post-inversion-operation",
+      
+        title: "Inversion Operation",
+      
+      description: "article about a simple arithmetic inversion operation utilizing a standard AST",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/inversion_op/";
+        
+      },
+    },{id: "news-i-created-this-new-blog-using-ruby-jekyll-and-al-folio-to-act-as-a-kind-of-writing-space-for-my-hobbies-and-research-needs",
           title: 'I created this new blog using Ruby/Jekyll and al-folio, to act as a...',
           description: "",
           section: "News",},{
