@@ -51,6 +51,9 @@ ninja.data = [{
     },{id: "news-i-created-this-new-blog-using-ruby-jekyll-and-al-folio-to-act-as-a-kind-of-writing-space-for-my-hobbies-and-research-needs",
           title: 'I created this new blog using Ruby/Jekyll and al-folio, to act as a...',
           description: "",
+          section: "News",},{id: "news-first-blog-post-is-up-and-finalized",
+          title: 'First blog post is up and finalized',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',
