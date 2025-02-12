@@ -29,3 +29,59 @@
 	file = {Teegen et al. - 2021 - Haskell⁻¹ automatic function inversion in Haskell.pdf:/Users/evandrake/Zotero/storage/EDQIE423/Teegen et al. - 2021 - Haskell⁻¹ automatic function inversion in Haskell.pdf:application/pdf},
 }
 
+
+@misc{corrigan-gibbs,
+	title = {The {Function}-{Inversion} {Problem}: {Barriers} and {Opportunities}},
+	shorttitle = {The {Function}-{Inversion} {Problem}},
+	url = {https://eprint.iacr.org/2019/1046.pdf},
+	abstract = {The task of function inversion is central to cryptanalysis: breaking
+block ciphers, forging signatures, and cracking password hashes are all
+special cases of the function-inversion problem. In 1980, Hellman showed
+that it is possible to invert a random function \$f{\textbackslash}colon [N] {\textbackslash}to [N]\$ in
+time \$T = {\textbackslash}widetilde\{O\}(N{\textasciicircum}\{2/3\})\$ given only
+\$S = {\textbackslash}widetilde\{O\}(N{\textasciicircum}\{2/3\})\$ bits of precomputed advice about \$f\$.
+Hellman’s algorithm is the basis for the popular “Rainbow Tables”
+technique (Oechslin, 2003), which achieves the same asymptotic cost and
+is widely used in practical cryptanalysis.
+
+Is Hellman’s method the best possible algorithm for inverting functions
+with preprocessed advice? The best known lower bound, due to Yao (1990),
+shows that \$ST = {\textbackslash}widetilde\{{\textbackslash}Omega\}(N)\$, which still admits the
+possibility of an \$S = T = {\textbackslash}widetilde\{O\}(N{\textasciicircum}\{1/2\})\$ attack. There remains
+a long-standing and vexing gap between Hellman’s \$N{\textasciicircum}\{2/3\}\$ upper bound
+and Yao’s \$N{\textasciicircum}\{1/2\}\$ lower bound. Understanding the feasibility of an
+\$S = T = N{\textasciicircum}\{1/2\}\$ algorithm is cryptanalytically relevant since such an
+algorithm could perform a key-recovery attack on AES-128 in time
+\$2{\textasciicircum}\{64\}\$ using a precomputed table of size \$2{\textasciicircum}\{64\}\$.
+
+For the past 29 years, there has been no progress either in improving
+Hellman’s algorithm or in strengthening Yao’s lower bound. In this work,
+we connect function inversion to problems in other areas of theory to
+(1) explain why progress may be difficult and (2) explore possible ways
+forward.
+
+Our results are as follows:
+
+- We show that *any* improvement on Yao’s lower bound on
+function-inversion algorithms will imply new lower bounds on
+depth-two circuits with arbitrary gates. Further, we show that
+proving strong lower bounds on *non-adaptive* function-inversion
+algorithms would imply breakthrough circuit lower bounds on
+linear-size log-depth circuits.
+
+- We take first steps towards the study of the *injective*
+function-inversion problem, which has manifold cryptographic
+applications. In particular, we show that improved algorithms for
+breaking PRGs with preprocessing would give improved algorithms for
+inverting injective functions with preprocessing.
+
+- Finally, we show that function inversion is closely related to
+well-studied problems in communication complexity and data
+structures. Through these connections we immediately obtain the best
+known algorithms for problems in these domains.},
+	urldate = {2025-01-21},
+	author = {Corrigan-Gibbs, Henry and Kogan, Dmitry},
+	year = {2019},
+	note = {Publication info: A major revision of an IACR publication in TCC 2019},
+	file = {Full Text:/Users/evandrake/Zotero/storage/2AAFA389/Corrigan-Gibbs and Kogan - 2019 - The Function-Inversion Problem Barriers and Oppor.pdf:application/pdf},
+}
