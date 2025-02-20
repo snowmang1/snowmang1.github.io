@@ -39,6 +39,9 @@ toc:
   - name: Literature
   - name: Implementation
   - name: Future
+  - name: Appendix
+    subsections:
+        - name: Nomenclature
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
@@ -246,3 +249,18 @@ I also used this post to start my blog;
 
 In the event you read this and have any thoughts on the project,
     do not hesitate to  message me on Github or email me about it.
+
+---
+
+# Appendix
+
+Extra information that is not necessary to the article or is (relevant) assumed knowledge.
+
+### Nomenclature
+
+- $axiom$ : An axiom describes a central assumption of our argument.
+- $\forall$ : This symbol signifies that the associated variable represents all arbitrary values of the encapsulating set.
+- $AST$ : Abstract Syntax Tree
+- $f$ : I have a habit of using $f$ to name *any arbitrary function*
+- $\circ$ : function composition
+- $\{ \| \}$ : list composition where the _pipe_ is read as "such that"
