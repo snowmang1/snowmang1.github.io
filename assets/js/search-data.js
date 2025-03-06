@@ -54,6 +54,9 @@ ninja.data = [{
           section: "News",},{id: "news-first-blog-post-is-up-and-finalized",
           title: 'First blog post is up and finalized',
           description: "",
+          section: "News",},{id: "news-i-have-a-project-idea-for-a-topological-library-in-lean4-that-i-will-start-working-on-soon",
+          title: 'I have a project idea for a topological library in Lean4 that I...',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',
