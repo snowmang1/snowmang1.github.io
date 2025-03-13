@@ -9,7 +9,14 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-blog",
+  },{id: "nav-my-books",
+          title: "My Books",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/books/";
+          },
+        },{id: "nav-blog",
           title: "blog",
           description: "",
           section: "Navigation",
@@ -30,6 +37,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "My github repo information",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
         },{id: "nav-cv",
           title: "cv",
           description: "My CV/Resume in an online extended format",
@@ -48,7 +62,92 @@ ninja.data = [{
           window.location.href = "/blog/2025/inversion_op/";
         
       },
-    },{id: "news-i-created-this-new-blog-using-ruby-jekyll-and-al-folio-to-act-as-a-kind-of-writing-space-for-my-hobbies-and-research-needs",
+    },{id: "books-algebraic-number-theory",
+          title: 'Algebraic number theory',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/algebraic_num_theory/";
+            },},{id: "books-elements-of-programming",
+          title: 'Elements of Programming',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/elem_of_prog/";
+            },},{id: "books-engineering-a-compiler",
+          title: 'Engineering a Compiler',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/engineering_a_compiler/";
+            },},{id: "books-enumerative-combinatroics",
+          title: 'Enumerative combinatroics',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/enumerative_combinatorics/";
+            },},{id: "books-introduction-to-automata-theory-languages-and-computation",
+          title: 'Introduction to Automata Theory, Languages, and Computation',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/intro_automata_lang_computation/";
+            },},{id: "books-introduction-to-algorithms",
+          title: 'Introduction to algorithms',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/intro_to_algorithms/";
+            },},{id: "books-an-introduction-to-parallel-programming",
+          title: 'An introduction to parallel programming',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/intro_to_parallel_prog/";
+            },},{id: "books-introduction-to-the-theory-of-computation",
+          title: 'Introduction to the theory of computation',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/intro_to_theory_of_computation/";
+            },},{id: "books-introduction-to-topology",
+          title: 'Introduction to Topology',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/introduction_to_topology/";
+            },},{id: "books-from-mathematics-to-generic-programming",
+          title: 'From mathematics to generic programming',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/math_to_generic_prog/";
+            },},{id: "books-the-meaning-of-language",
+          title: 'The meaning of language',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/meaning_of_language/";
+            },},{id: "books-network-science",
+          title: 'Network Science',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/network_science/";
+            },},{id: "books-philosophy-of-language",
+          title: 'Philosophy of Language',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/philosophy_of_language/";
+            },},{id: "books-programming-language-pragmatics",
+          title: 'Programming language pragmatics',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/prog_lagn_prag/";
+            },},{id: "books-proofs",
+          title: 'Proofs',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/proofs/";
+            },},{id: "books-real-analysis",
+          title: 'Real Analysis',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/real_analysis/";
+            },},{id: "books-no-bullshit-guid-to-linear-algebra",
+          title: 'No bullshit guid to linear algebra',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/savov/";
+            },},{id: "news-i-created-this-new-blog-using-ruby-jekyll-and-al-folio-to-act-as-a-kind-of-writing-space-for-my-hobbies-and-research-needs",
           title: 'I created this new blog using Ruby/Jekyll and al-folio, to act as a...',
           description: "",
           section: "News",},{id: "news-first-blog-post-is-up-and-finalized",
@@ -57,7 +156,55 @@ ninja.data = [{
           section: "News",},{id: "news-i-have-a-project-idea-for-a-topological-library-in-lean4-that-i-will-start-working-on-soon",
           title: 'I have a project idea for a topological library in Lean4 that I...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "news-i-have-created-a-bookshelf-with-an-ongoing-collection-of-my-favorite-academic-books",
+          title: 'I have created a bookshelf with an ongoing collection of my favorite academic...',
+          description: "",
+          section: "News",},{id: "projects-project-1",
+          title: 'project 1',
+          description: "with background image",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_project/";
+            },},{id: "projects-project-2",
+          title: 'project 2',
+          description: "a project with a background image and giscus comments",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_project/";
+            },},{id: "projects-project-3-with-very-long-name",
+          title: 'project 3 with very long name',
+          description: "a project that redirects to another website",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_project/";
+            },},{id: "projects-project-4",
+          title: 'project 4',
+          description: "another without an image",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_project/";
+            },},{id: "projects-project-5",
+          title: 'project 5',
+          description: "a project with a background image",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_project/";
+            },},{id: "projects-project-6",
+          title: 'project 6',
+          description: "a project with no image",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/6_project/";
+            },},{id: "projects-project-7",
+          title: 'project 7',
+          description: "with background image",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/7_project/";
+            },},{id: "projects-project-8",
+          title: 'project 8',
+          description: "an other project with a background image and giscus comments",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/8_project/";
+            },},{id: "projects-project-9",
+          title: 'project 9',
+          description: "another project with an image 🎉",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/9_project/";
+            },},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
@@ -79,11 +226,25 @@ ninja.data = [{
           window.open("https://gitlab.com/snowmang", "_blank");
         },
       },{
+        id: 'social-inspire',
+        title: 'Inspire HEP',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://inspirehep.net/authors/1010907", "_blank");
+        },
+      },{
         id: 'social-rss',
         title: 'RSS Feed',
         section: 'Socials',
         handler: () => {
           window.open("/feed.xml", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=qc6CJjYAAAAJ", "_blank");
         },
       },{
         id: 'social-zotero',
