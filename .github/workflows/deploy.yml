@@ -7,10 +7,7 @@ on:
       - main
     paths:
       - "assets/**"
-<<<<<<< HEAD
       - "_sass/**"
-=======
->>>>>>> aeaa75e2 (Initial commit)
       - "**.bib"
       - "**.html"
       - "**.js"
@@ -38,10 +35,7 @@ on:
       - main
     paths:
       - "assets/**"
-<<<<<<< HEAD
       - "_sass/**"
-=======
->>>>>>> aeaa75e2 (Initial commit)
       - "**.bib"
       - "**.html"
       - "**.js"
