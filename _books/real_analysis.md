@@ -13,5 +13,5 @@ finished:
 released: 2019
 stars:
 goodreads_review:
-status: TBR
+status: intereseted
 ---

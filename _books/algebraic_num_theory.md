@@ -13,5 +13,5 @@ finished:
 released: 2010
 stars:
 goodreads_review:
-status: TBR
+status: interested
 ---

@@ -13,6 +13,6 @@ finished:
 released: 2021
 stars: 5
 goodreads_review:
-status: reading
+status: rereading
 ---
 

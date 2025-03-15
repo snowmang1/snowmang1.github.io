@@ -8,12 +8,12 @@ isbn: 9780486406800 # use ISBN to fetch cover (if no `olid` is provided, dashes 
 categories: topology non-fiction math
 tags: topology math
 buy_link: https://store.doverpublications.com/products/9780486406800
-started: 2024-03-01
+started: 2025-03-01
 finished:
 released: 1999
-stars: 4
+stars:
 goodreads_review:
-status: reading
+status: queued
 ---
 
 This is a wonderful topology book I am reading for current research.

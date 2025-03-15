@@ -13,5 +13,5 @@ finished:
 released: 2010
 stars: 4
 goodreads_review:
-status: reading
+status: paused
 ---

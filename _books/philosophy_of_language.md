@@ -13,5 +13,5 @@ finished:
 released: 2016
 stars:
 goodreads_review:
-status: TBR
+status: interested
 ---
