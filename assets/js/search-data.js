@@ -117,6 +117,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/meaning_of_language/";
+            },},{id: "books-topology",
+          title: 'Topology',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/munkres_topo/";
             },},{id: "books-network-science",
           title: 'Network Science',
           description: "",
