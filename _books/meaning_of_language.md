@@ -9,11 +9,11 @@ categories: non-fiction language
 tags: language
 buy_link: https://mitpress.mit.edu/9780262535731/the-meaning-of-language/
 started: 2023-01-01
-finished: 2024-01-01
+finished:
 released: 2020
 stars: 4
 goodreads_review:
-status: finished
+status: reading
 ---
 
 Fantastic book teaching one how to think about language.
