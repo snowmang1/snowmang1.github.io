@@ -9,8 +9,8 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-my-books",
-          title: "My Books",
+  },{id: "nav-my-bookshelf",
+          title: "My Bookshelf",
           description: "",
           section: "Navigation",
           handler: () => {
@@ -51,7 +51,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-inversion-operation",
+        },{id: "post-induction",
+      
+        title: "Induction",
+      
+      description: "A look at mathematical induction",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/induction/";
+        
+      },
+    },{id: "post-inversion-operation",
       
         title: "Inversion Operation",
       
