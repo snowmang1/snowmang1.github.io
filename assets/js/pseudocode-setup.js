@@ -1,5 +1,7 @@
 window.MathJax = {
+  loader: {load: ['[tex]/require']},
   tex: {
+    packages: {'[+]': ['require']},
     inlineMath: [
       ["$", "$"],
       ["\\(", "\\)"],
