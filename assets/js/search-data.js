@@ -175,7 +175,12 @@ ninja.data = [{
           section: "News",},{id: "news-i-have-created-a-bookshelf-with-an-ongoing-collection-of-my-favorite-academic-books",
           title: 'I have created a bookshelf with an ongoing collection of my favorite academic...',
           description: "",
-          section: "News",},{id: "projects-project-1",
+          section: "News",},{id: "news-cool-induction-proof",
+          title: 'cool_induction_proof',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/news_2025-05-24/";
+            },},{id: "projects-project-1",
           title: 'project 1',
           description: "with background image",
           section: "Projects",handler: () => {
