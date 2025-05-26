@@ -52,28 +52,28 @@ ninja.data = [{
             window.location.href = "/cv/";
           },
         },{id: "post-induction",
-      
-        title: "Induction",
-      
-      description: "A look at mathematical induction",
-      section: "Posts",
-      handler: () => {
         
-          window.location.href = "/blog/2025/induction/";
+          title: "Induction",
         
-      },
-    },{id: "post-inversion-operation",
-      
-        title: "Inversion Operation",
-      
-      description: "article about a simple arithmetic inversion operation utilizing a standard AST",
-      section: "Posts",
-      handler: () => {
+        description: "A look at mathematical induction",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/induction/";
+          
+        },
+      },{id: "post-inversion-operation",
         
-          window.location.href = "/blog/2025/inversion_op/";
+          title: "Inversion Operation",
         
-      },
-    },{id: "books-algebraic-number-theory",
+        description: "article about a simple arithmetic inversion operation utilizing a standard AST",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/inversion_op/";
+          
+        },
+      },{id: "books-algebraic-number-theory",
           title: 'Algebraic number theory',
           description: "",
           section: "Books",handler: () => {
