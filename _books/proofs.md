@@ -13,6 +13,15 @@ finished:
 released: 2021
 stars: 5
 goodreads_review:
-status: rereading
+status: finished
 ---
 
+This book gives a wonderful overview of proof theory.
+That is the art of crafting mathematical proofs from intuition and understanding.
+The author deliberately breaks from the traditional higher maths method of learning through proof examination;
+    which makes the book feel much more like a lecture than self-learning.
+The introductory chapter makes proving theorems feel like a kind of magic.
+In particular using the pigeonhole principle on those first few problems.
+The difficulty level was tame for what I assumed was going to be a higher maths book.
+The readability was simply amazing,
+    such that both my personal understanding of the topics (and tangent material) was driven by curiosity.
