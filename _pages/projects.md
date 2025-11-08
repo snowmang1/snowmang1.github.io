@@ -1,12 +1,12 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: Collection of larger projects, usually to large for a single blog post worth of information
+description: These are long-form discussion on specific topics
 nav: true
 nav_order: 3
 display_categories: [Research, Fun]
-horizontal: false
+horizontal: true
 ---
 
 <!-- pages/projects.md -->
