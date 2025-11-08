@@ -21,7 +21,7 @@
   contents:
     - title: Associate faculty
       institution: Butte college
-      year: 2024 - current
+      year: 2023 - current
       description:
         - Teaching computer science
         - Teaching engineering
@@ -40,6 +40,19 @@
 - title: Academic Interests
   type: nested_list
   contents:
+    - title: Quantum computing
+      items:
+        - Quantum information theory
+        - Quantum algorithms
+        - Quantum complexity theory
+    - title: Complexity theory
+      items:
+        - algorithm design
+        - $P \stackrel{?}{=} NP$
+    - title: Proof theory
+      items:
+        - automated proof theory
+        - machine checkable proofs
     - title: Type theory
       items:
         - Homotopy type theory
@@ -54,4 +67,4 @@
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Fantasy Novels, Linguistics, Mathematics, Black smithing, 
+    - <u>Hobbies:</u> Fantasy Novels, Linguistics, Mathematics, Black smithing, Weight lifting
