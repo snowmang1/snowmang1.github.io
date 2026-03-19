@@ -13,7 +13,7 @@ finished:
 released: 2020
 stars: 4
 goodreads_review:
-status: reading
+status: paused
 ---
 
 Fantastic book teaching one how to think about language.

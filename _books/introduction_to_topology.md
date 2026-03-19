@@ -13,7 +13,6 @@ finished:
 released: 1999
 stars:
 goodreads_review:
-status: queued
+status: reading
 ---
 
-This is a wonderful topology book I am reading for current research.
