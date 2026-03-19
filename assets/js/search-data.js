@@ -31,8 +31,8 @@ ninja.data = [{
             window.location.href = "/publications/";
           },
         },{id: "nav-projects",
-          title: "projects",
-          description: "Collection of larger projects, usually to large for a single blog post worth of information",
+          title: "Projects",
+          description: "These are long-form discussion on specific topics",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -73,7 +73,12 @@ ninja.data = [{
             window.location.href = "/blog/2025/inversion_op/";
           
         },
-      },{id: "books-algebraic-number-theory",
+      },{id: "books-the-oxford-handbook-of-the-philosophy-of-consciousness",
+          title: 'The Oxford Handbook of the Philosophy of Consciousness',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/Oxford_handbook_phil_conscious/";
+            },},{id: "books-algebraic-number-theory",
           title: 'Algebraic number theory',
           description: "",
           section: "Books",handler: () => {
@@ -180,11 +185,6 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/news_2025-05-24/";
-            },},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
             },},{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
@@ -225,6 +225,11 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
+            },},{id: "projects-analysis",
+          title: 'Analysis',
+          description: "A discussion on my journey through analysis and its surrounding topics.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/analysis_discussion/";
             },},{
         id: 'social-email',
         title: 'email',
