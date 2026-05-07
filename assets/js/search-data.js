@@ -51,7 +51,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-induction",
+        },{id: "post-the-completeness-axiom",
+        
+          title: "The Completeness Axiom",
+        
+        description: "A shallow investigation of a single axiom of the Real numbers leading to a realization about the Complex numbers",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/number_line/";
+          
+        },
+      },{id: "post-induction",
         
           title: "Induction",
         
@@ -73,7 +84,12 @@ ninja.data = [{
             window.location.href = "/blog/2025/inversion_op/";
           
         },
-      },{id: "books-the-oxford-handbook-of-the-philosophy-of-consciousness",
+      },{id: "books-functions-of-one-complex-variable",
+          title: 'Functions of one complex variable',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/Functions_of_one_complex_variable/";
+            },},{id: "books-the-oxford-handbook-of-the-philosophy-of-consciousness",
           title: 'The Oxford Handbook of the Philosophy of Consciousness',
           description: "",
           section: "Books",handler: () => {
