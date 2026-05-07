@@ -40,6 +40,7 @@ toc:
   - name: Cantor's Cauchy sets
   - name: Dedekind's cuts
   - name: Weierstrass construction
+  - name: Future questions
   - name: References
     # if a section has subsections, you can add them as follows:
     # subsections:
