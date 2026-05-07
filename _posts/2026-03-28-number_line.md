@@ -320,3 +320,34 @@ With that information we move to the next method,
     however it is worthy of note that both <d-cite key="saclolo"></d-cite> & <d-cite key="crosby"></d-cite> go on to define in detail Dedekind's method of construction.
 
 # Weierstrass construction
+Karl Weierstrass also has a construction of a real numbers.
+One that particularly presents as less of a set theoretic approach.
+Weierstrass describes that we he terms an _aggregate_, see <d-cite key="bennabi"></d-cite> & <d-cite key="bolling"></d-cite>.
+This aggregate is described in fashion of a combinatoric problem,
+    as a kind of composition of natural numbers and some operation.
+That is to describe some $x$ in terms of some $\lambda \in \Lambda$ as in the following from.
+We can see that the complete sequence of all aggregate values create from $\Lambda$ is simply
+    $(x_\lambda)_{\lambda \in \Lambda}$ from <d-cite key="bennabi"></d-cite>.
+
+Weierstrass goes on to describe rationals in terms of these aggregates using $\Lambda = \mathbb{N}$.
+In particular outlining a more combinatoric definition of the field of rational numbers.
+Specifically with _Proposition 3.5_ in <d-cite key="bennabi"></d-cite> we can see the redesigning of the rational values.
+
+It is the case that Weierstrass crafts an explicit construction of the real number described in
+    <d-cite key="bennabi"></d-cite> & <d-cite key="bolling"></d-cite>.
+In particular a construction of a different kind than both Dedekind and Cantor.
+With that said my appetite was satiated with his redefining the rational values of that of his aggregate.
+
+# Future questions
+1. It is the case (most confidently) that the real numbers are a **complete**, ordered field.
+Having begun my studies on the complex plane,
+    it seems that complex numbers form a field which is not verifiable complete.
+It would be of interest to me to find out why this is.
+I assume in my studying the complex numbers this answer will be revealed.
+2. Since the real numbers can be constructed in such different ways as Dedekind cuts and the Weierstrass method,
+    is there a best method of construction?
+In particular is it the case that one method reveals particularities that are not observed by the other?
+3. Is this notion of completeness modular?
+In particular,
+    is it possible to formulate a proof where in one proves that a different set is equivalently complete as compared to the real numbers.
+This concept seems rather possible though an exact example eludes me entirely.
