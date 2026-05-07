@@ -5,7 +5,7 @@ permalink: /projects/
 description: These are long-form discussion on specific topics
 nav: true
 nav_order: 3
-display_categories: [Research, Fun]
+display_categories: Research
 horizontal: true
 ---
 
