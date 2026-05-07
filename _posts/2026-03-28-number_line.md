@@ -71,13 +71,12 @@ Intuition is key to every field of mathematics,
 If one builds their intuition upon assumptions that are not completely understood,
     this can be dangerous to later concepts.
 Thus is the purpose of my investigation into $\mathbb{R}$.
-The axiom did not entirely make sense to me which I found interesting enough to write about.
-That axiom being the axiom of completeness for the real numbers.
+The completeness axiom did not entirely make sense to me which I found interesting enough to write about.
 This axioms states simply that the real numbers are complete,
     meaning there is no measurable gap between any two sequential elements.
 
 \begin{equation} \label{comp-axiom}
-    (\forall a, b \in \mathbb{R}) \land (\nexists c \in \mathbb{R} \mid a < c < b)
+    (a, b \in \mathbb{R}) \land (\nexists c \in \mathbb{R} \mid a < c < b)
     \implies \forall \epsilon > 0, |a - b| < \epsilon
 \end{equation}
 
@@ -121,8 +120,7 @@ Formally this concept is presented below in Eq. \eqref{rational problem}.
 
 \begin{equation} \label{rational problem}
     (\forall a_{n},a_{n+1} \in \mathbb{Q} \mid a_{n} < a_{n+1}) (\nexists h \in \mathbb{Q} \mid a_{n} < h < a_{n+1})
-    (\exists z \notin \mathbb{Q})
-    \implies (a_{n} < z < a_{n+1})
+    \implies (\exists z \notin \mathbb{Q})(a_{n} < z < a_{n+1})
 \end{equation}
 
 We observe that there exist numbers outside the Rational ring,
