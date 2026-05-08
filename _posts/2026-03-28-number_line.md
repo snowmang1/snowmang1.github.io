@@ -37,10 +37,11 @@ citation: true
 toc:
   - name: Abstract
   - name: Introduction
-  - name: Cantor's Cauchy sets
+  - name: Cantor's Cauchy sequences
   - name: Dedekind's cuts
   - name: Weierstrass construction
   - name: Future questions
+  - name: Nomenclature
   - name: References
     # if a section has subsections, you can add them as follows:
     # subsections:
@@ -131,14 +132,14 @@ The question now becomes how do we construct such a ring<d-footnote>
     Note I use the term "ring" loosely throughout the paper. As a proper definition is not assumed here. </d-footnote>
     of numbers?
 
-# Cantor's Cauchy sets
+# Cantor's Cauchy sequences
 Of the three constructions I present here this one makes the least sense to me.
 Thus in perfect mathematics fashion I shall present it first.
 The crux of Cantor's construction is the understanding of the Cauchy sequence.
-Not a particular set but (at least in my mind) an attribute of a given set.
+Not a particular set but (at least in my mind) an attribute of a given sequence.
 
 \begin{equation} \label{cauchy-seq}
-    (\\{ a_n \\} \subset \mathbb{R})(\forall \epsilon > 0)(\exists N \in \mathbb{N}) \implies
+    (( a_n ) \subset \mathbb{R})(\forall \epsilon > 0)(\exists N \in \mathbb{N}) \implies
     (|a_n - a_m| < \epsilon)(n,m > N)
 \end{equation}
 
@@ -350,3 +351,21 @@ In particular is it the case that one method reveals particularities that are no
 In particular,
     is it possible to formulate a proof where in one proves that a different set is equivalently complete as compared to the real numbers.
 This concept seems rather possible though an exact example eludes me entirely.
+
+# Nomenclature
+1. $\leftarrow \quad $ The symbol for _assignment_, $S \leftarrow \{0,1,2\}$ means that $S$ is the name for the set $\{0,1,2\}$
+2. $\triangleq \quad $ The symbol for _equals by definition_, thus $0 \triangleq 0$ by the laws of arithmetic this statement must be true.
+3. $\forall \quad $ The symbol for _for all_, thus $\forall x \in S$ means that $x$ will take the value of all elements of the set $S$.
+4. $\implies \quad $ The symbol for _implies_, thus $P_1 \implies P_2$ means that should $P_1$ be true then $P_2$ is true.
+5. $\in \quad $ The symbol is _contained in_, thus $n \in N$ means that the value $x$ is contained in the set $N$.
+6. $\mid \quad $ The symbol for _such that_, thus $n \in N \mid n = 5$ means that $n$ is a value contained in $N$ such that $n$ is the number $5$.
+7. $\land \quad $ The symbol for _logical and_, thus $P_1 \land P_2$ both $P_1$ and $P_2$ must be true if the statement as a whole is to be true.
+This is implied by two sequential logical statements: $(A)(B) = A \land B$.
+9. $S(x) \quad $ This is to symbolize the function $S$ taking as an input the value $x$.
+11. $\lor \quad $ This is the symbol for logical or, thus $P_1 \lor P_2$ this statement is true if $P_1$ or $P_2$ is true.
+12. $\subset$ The subset symbol symbolizing a set contained within another set,
+    for example the set $C$ contained in $\mathbb{R}$ is $C \subset \mathbb{R}$.
+13. $(a_n)$ Symbolizing the anonymous sequences of all values $a$ at some index $n$.
+14. $\exists x$ Their exists some value $x$ usually defined as part of a set.
+15. $sup(x_n)$ The supremum of the anonymous sequence $(x_n)$.
+16. $ \mid $ read "such that".
