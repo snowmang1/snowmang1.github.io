@@ -23,3 +23,22 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+// for my changing figures to work
+.theme-figure {
+  text-align: center;
+}
+
+html[data-theme="light"] {
+  --caption-color: #666;
+}
+
+html[data-theme="dark"] {
+  --caption-color: #bbb;
+}
+
+.theme-caption {
+  margin-top: 0.5rem;
+  color: var(--caption-color);
+  font-style: italic;
+}

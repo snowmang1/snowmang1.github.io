@@ -57,6 +57,21 @@ let applyTheme = () => {
 
   document.documentElement.setAttribute("data-theme", theme);
 
+  // for changing SVG
+  let changeSVG = function (theme) {
+    const imgs = document.getElementsByClassName("theme-image");
+    for (let i = 0; i < imgs.length; i++) {
+      console.log(img, theme, nextSrc);
+      const img = imgs[i];
+      const nextSrc = theme === "light" ? img.dataset.light : img.dataset.dark;
+      if (nextSrc && img.getAttribute("src") !== nextSrc) {
+        img.setAttribute("src", nextSrc);
+      }
+    }
+  };
+  changeSVG(theme);
+
+
   // Add class to tables.
   let tables = document.getElementsByTagName("table");
   for (let i = 0; i < tables.length; i++) {
