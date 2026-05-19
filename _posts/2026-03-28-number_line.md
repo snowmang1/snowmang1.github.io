@@ -5,7 +5,7 @@ description: A shallow investigation of a single axiom of the Real numbers leadi
 tags: math set-theory
 giscus_comments: false
 date: 2026-03-28
-featured: true
+featured: false
 mermaid:
   enabled: true
   zoomable: true

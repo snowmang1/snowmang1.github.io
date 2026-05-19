@@ -1,11 +1,11 @@
 ---
 layout: distill
-title: Computable regions of a Riemann sphere
-description:
+title: Riemann Sphere's and Computability
+description: article 
 tags: math computability
 giscus_comments: false
 date: 2026-05-11
-featured: true
+featured: false
 mermaid:
   enabled: false
   zoomable: false
@@ -35,6 +35,12 @@ citation: true
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
   - name: Introduction
+  - name: Background
+  - subsections:
+    - name: Riemann Sphere
+    - name: Computable analysis
+  - name: Computable Regions of Riemann sphere
+
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
@@ -144,4 +150,39 @@ We call this particular sphere $S^2$ or the Riemann sphere,
     caption="Figure 3: Riemann sphere"
 %}
 
-<!-- ## Computable analysis -->
+## Computable analysis
+_Computable analysis_ investigates those theorems and functions of classical analysis,
+    with particular interest in their computability.
+In particular we will find that their exists axioms of computability specifically tied to constructions of classical analysis.
+It is with these axioms and theorems of computability that we will examine the Riemann sphere in coming sections.
+The most basic idea in computability is that distinction of which math can be described as _computable_.
+Thus we define computability as those mathematical constructions which can be described mechanistically <d-cite key="soare"></d-cite>.
+In particular,
+    we say these constructions are Turning-computable if they can be recreated using a Turing-machine or some equivalent logic <d-cite key="soare"></d-cite>.
+In the case of analysis we normally find sets described by functions,
+    thus we need a definition emphasizing sets and functions.
+In particular,
+    <d-cite key="brattka"></d-cite> calls a function computable if "every approximation of the output can be made using an approximation of the input".
+We can infer that a computable function would describe an enumerable set.
+More specifically an enumerable set is the set for which there exists a function that can enumerate it.
+Notably we say that a set $A \subset \mathbb{N}$ is recursive if there exists a function which can decide if some element $k$ belongs in $A$ or not <d-cite key="brattka"></d-cite>.
+We can also say that any _recursively enumerable_ set is computable,
+    As there exists a function which can estimate the values of the set with some outputs.
+The above is taken from basic computability,
+    mostly assumed knowledge for discussing computable analysis.
+Here will require definitions of computability as it pertains to non-discrete space.
+In particular,
+    Here we describe those computable regions of a Riemann sphere.
+Notably the Riemann sphere is an object belonging to a continuous space,
+    particularly $\mathbb{C}$.
+To this end,
+    I utilize prescribe to those theories found in _Type 2 theory of effectivity_ (TTE) <d-cite key="weihrauch_article"></d-cite> <d-cite key="weihrauch_book"></d-cite>.
+In particular TTE has definitions specifically for metric spaces.
+Concluding this section will be a list of basic theorems to do with computability.
+
+1. Recursively enumerable sets are computable.
+2. Functions are computable given there inputs can be estimated using their outputs.
+3. Computability is defined using Turing-machine (or equivalent) logic in Discrete space.
+
+# Computable Regions of Riemann sphere
+
