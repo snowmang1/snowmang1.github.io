@@ -53,17 +53,17 @@ toc:
 ---
 
 # Introduction
-Here I will strive to describe computable regions of a Riemann sphere.
-In particular I will describe how we define computable in this context,
-    and present what a Riemann sphere is in the context of complex analysis.
-There is no small amount of contextual material to cover so I will begin by presenting background information in subsections.
-In particular: what is a Riemann sphere; what do I mean by computable here; how do I describe a region of a Riemann sphere.
+Here I explore computable regions of the Riemann sphere $\hat{\mathbb{C}}$.
+I begin with recalling that definition of $\hat{\mathbb{C}}$ from complex analysis,
+    with particular emphasis on stereographic projection.
+Then I examine computable analysis,
+    in particular how computability is defined on complete separable metric spaces according to _TTE_.
 
 # Background
 I assume knowledge of $\mathbb{C}$.
 In particular,
     I assume that readers understand the representation of complex numbers and basic arithmetic in $\mathbb{C}$.
-I also assume familiarity with $\epsilon - \delta$ proofs and real analysis.
+I also assume knowledge of basic real analysis.
 
 ## Riemann Sphere
 The Riemann sphere is that projection of the extended complex plain that allows for natural inverses of elements<d-cite key="needham"></d-cite>.
@@ -225,3 +225,10 @@ Further lets assume that it was $\mathbb{Q}$,
 Thus that subregion is computable$^\blacksquare$.
 
 # Thoughts and future work
+This work is incredibly interesting,
+    due to the nature of computability.
+Upon starting my research on mathematics in the continuous space (complex analysis) I believed computability to be impossible.
+It was my understanding that computable algorithms were limited to discrete space strictly.
+While it seems to be required to find natural projections to the target set,
+    the rules seem to be less strict than I originally thought.
+I think I will continue to investigate computability while working through <d-cite key="conway"></d-cite>, <d-cite key="needham"></d-cite>, and Lang's book (not cited here).
