@@ -2,7 +2,7 @@
 layout: distill
 title: Riemann Sphere's and Computability
 description: article 
-tags: math computability
+tags: Math
 giscus_comments: false
 date: 2026-05-11
 featured: false
