@@ -185,4 +185,43 @@ Concluding this section will be a list of basic theorems to do with computabilit
 3. Computability is defined using Turing-machine (or equivalent) logic in Discrete space.
 
 # Computable Regions of Riemann sphere
+Computability describes those processes which can be described via mechanistic logic.
+Thus for any given Region of the Riemann sphere ($\hat{\mathbb{C}}$) to be considered computable it would have to be describable in some mechanistic logic.
+In particular it is true that such a region would need to be describable to a Turing machine.
+This would make that Region Turing computable.
+It is the case that Turing machines exist only in discrete space,
+    such that the infinite expansion (completeness) of continuous space is undefined within such a logic.
+Thus to define such a region of $\hat{\mathbb{C}}$ to a Turing machine that region must be limited to a discrete subset of $\hat{\mathbb{C}}$.
+The above was my original thoughts on the problem,
+    thankfully it seems I was wrong.
+In particular, <d-cite key="weihrauch_article"></d-cite> <d-cite key="weihrauch_book"></d-cite>
+    describes TTE as a form of logic making metric spaces computable.
+That is TTE projects $\mathbb{N}$ onto such subsets $M$ of a metric space $X$ such that $\mathbb{N}$ is describable to Turing machine thus implying the computability $M$.
+Under TTE, a computable metric space be defined as the following four tuple $$\bar{M} := (M, d, A, \alpha)$$:
 
+1. $(M, d)$ the metric space
+2. $A \subset M$, where $A$ is a dense subset
+3. $\alpha : \mathbb{N} \rightarrow A$ is a total numbering of $A$
+4. $$D_< : \{ \langle i,j,k \rangle \mid  d( \alpha (i), \alpha (j) ) < v_\mathbb{Q}(k) \} $$ is recursively enumerable
+
+Note that the total numbers of $A$ is simply $\mathbb{N}$ projected onto the $A$,
+    that is $A$ is a countable set.
+The fourth rule is describing that the distance between any two elements,
+    with relation to an associated numbering of the rationals.
+In particular this rule is only accounting for a single side of the distance,
+    allowing for arbitrary precision of distances <d-cite key="weihrauch_article"></d-cite>.
+Notably we can also assume that the metric space on $\mathbb{R}$ is computable for a given $(\mathbb{R}, d, \mathbb{Q}, v_\mathbb{Q})$.
+There exists a concept of computable continuous sets in <d-cite key="weihrauch_article"></d-cite>,
+    though it seems to specific to use here.
+Given the above four rules and the knowledge that $(\mathbb{R}, d, \mathbb{Q}, v_\mathbb{Q})$ is a computable metric space,
+    we can begin an investigation.
+Recall that $\hat{\mathbb{C}}$ is the metric space $(\Sigma, d)$ where $\Sigma$ is the sphere and $d$ describes those points in relation to each other on that sphere.
+Given that the $\mathbb{R} \subset \mathbb{C} \implies \mathbb{R} \subset \hat{\mathbb{C}}$,
+    such that if $\hat{\mathbb{C}}$ is a metric space with metric $d$ then there must exist $(\mathbb{R}, d) \subset \hat{\mathbb{C}}$.
+In particular we know that there exist regions of $\hat{\mathbb{C}}$ which are completely contained inside $(\mathbb{R}, d)$.
+Let us assume that such a sub-region of that metric space is dense in $(\mathbb{R}, d)$.
+Further lets assume that it was $\mathbb{Q}$,
+    this implies there exists an exact natural projection $\lambda : \mathbb{N} \rightarrow \mathbb{Q}$.
+Thus that subregion is computable$^\blacksquare$.
+
+# Thoughts and future work
