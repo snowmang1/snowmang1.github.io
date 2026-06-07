@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+
+% Sphere
+\draw[thick, white] (0,0) circle (2);
+\shade[ball color=white, opacity=0.9] (0,0) circle (2);
+\fill[white] (0,2) circle (1.5pt) node[above] {$\infty$};
+\fill[white] (0,-2) circle (1.5pt) node[below] {$0$};
+
+% equator
+\draw[dashed, black] (0,0) ellipse (2 and 0.6);
+
+\end{tikzpicture}

@@ -51,7 +51,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-the-completeness-axiom",
+        },{id: "post-riemann-sphere-39-s-and-computability",
+        
+          title: "Riemann Sphere&#39;s and Computability",
+        
+        description: "article",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Riemann_sphere/";
+          
+        },
+      },{id: "post-the-completeness-axiom",
         
           title: "The Completeness Axiom",
         
