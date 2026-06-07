@@ -66,12 +66,12 @@ In particular,
 I also assume knowledge of basic real analysis.
 
 ## Riemann Sphere
-The Riemann sphere is that projection of the extended complex plain that allows for natural inverses of elements<d-cite key="needham"></d-cite>.
+The Riemann sphere is that projection of the extended complex plane that allows for natural inverses of elements<d-cite key="needham"></d-cite>.
 In particular the Riemann sphere ($\mathbb{S}^2$) is that sphere created when all points of $\mathbb{C}$ are mapped to the unit sphere via *stereographic projection*<d-cite key="needham"></d-cite>.
 Stereographic projection describes the process of mapping a unit sphere (denoted $S$) to some plane.
-Here we will assume the plane to be the extended complex plane $$\mathbb{C}_\infty$$ or $\mathbb{C} \cup \infty$.
-The inclusion of infinity allows descriptions of limits in $\mathbb{C}$ while via stereographic projection we can describe $$\mathbb{C}_\infty$$ as a metric space<d-cite key="conway"></d-cite>.
-In particular stereographic projection describes a sphere ($S$) at the origin of $$\mathbb{C}_\infty$$ such that the plane bisects $S$ on its equator, see figure 1.
+Here we will assume the plane to be the extended complex plane $$\hat{\mathbb{C}}$$ or $\mathbb{C} \cup \infty$.
+The inclusion of infinity allows descriptions of limits in $\mathbb{C}$ while via stereographic projection we can describe $$\hat{\mathbb{C}}$$ as a metric space<d-cite key="conway"></d-cite>.
+In particular stereographic projection describes a sphere ($S$) at the origin of $$\hat{\mathbb{C}}$$ such that the plane bisects $S$ on its equator, see figure 1.
 
 {%
     include theme-images.html
@@ -81,12 +81,12 @@ In particular stereographic projection describes a sphere ($S$) at the origin of
     caption="Figure 1: Stereographic projection, 3D view"
 %}
 
-Using the north pole of $S$ denoted $N$, we can create a geometric intuition for distance among points of $$\mathbb{C}_\infty$$.
-Thus using stereographic projection we can describe a metric space on $$\mathbb{C}_\infty$$, see <d-cite key="conway"></d-cite>.
-This metric space is created by forming a straight, infinite line between $N$ and all points $$z \in \mathbb{C}_\infty$$, see figure 2.
-It is trivial to intuit that all but one of these lines will pass through the sphere again before reaching $$\mathbb{C}_\infty$$.
+Using the north pole of $S$ denoted $N$, we can create a geometric intuition for distance among points of $$\hat{\mathbb{C}}$$.
+Thus using stereographic projection we can describe a metric space on $$\hat{\mathbb{C}}$$, see <d-cite key="conway"></d-cite>.
+This metric space is created by forming a straight, infinite line between $N$ and all points $$z \in \hat{\mathbb{C}}$$, see figure 2.
+It is trivial to intuit that all but one of these lines will pass through the sphere again before reaching $$\hat{\mathbb{C}}$$.
 In particular we label the intersection $Z$ in figure 2,
-    the only value that will not produce an intersection point $Z$ is $$\infty \in \mathbb{C}_\infty$$.
+    the only value that will not produce an intersection point $Z$ is $$\infty \in \hat{\mathbb{C}}$$.
 
 {%
     include theme-images.html
@@ -96,10 +96,19 @@ In particular we label the intersection $Z$ in figure 2,
     caption="Figure 2: Stereographic projection, 2D view"
 %}
 
-The arc length distance between different intersections is what forms the metric space.
-In particular,
-    it is the difference between any point $Z_a$ and $Z_b$ that defines our metric space on $$\mathbb{C}_\infty$$ <d-cite key="conway"></d-cite>.
-We can calculate the position of any $Z$ given the associated point $z$ with the following equations, noting $Z = (x_1, x_2, x_3)$.
+The metric space $(\hat{\mathbb{C}}, d)$ is defined in three dimensional space by the coordinate functions in Eq $\eqref{sphere-intersection-equations}$.
+That is, Each point $Z$ on the sphere correlates to some point $z \in \mathbb{C}$;
+    Such that $Z = (x_1, x_2, x_3)$.
+Such a metric space necessitates the presence of a metric function $d$ defined by Eq $\eqref{sphere-d}$ <d-cite key="conway"></d-cite>.
+
+$$
+\begin{equation} \label{sphere-d}
+
+d(z, z') = \frac{2|z - z'|}
+{\sqrt{(1 + |z|^2)(1 + |z'|^2)}}, (z, z' \in \mathbb{C})
+
+\end{equation}
+$$
 
 $$
 \begin{equation} \label{sphere-intersection-equations}
@@ -112,13 +121,12 @@ $$
 $$
 
 It is the case that there is only one point that does not produce an intersection.
-In particular it should be the case that when $z = \infty$ we should see the equation approach $N$.
-As $N$ is located at $(0,0,1)$ in this orientation we can continue by testing each equation for $z = \infty$.
-In the case of $x_1$ note that for any complex number $a$, we have $|a|^2 >> a + \bar{a}$.
-It is trivial then trivial that $x_2$ is approaches zero when $z = \infty$.
-It is not so clear in the case of $x_3$,
-    we have to show that $|a|^2 - 1 \rightarrow b$ and $|a|^2 + 1 \rightarrow b$.
-This of course is trivial as when $a$ becomes large the difference and addition of $1$ will be negligible.
+In particular it should be the case that when $(z_n) \rightarrow \infty$ we should see the equation approach $N$.
+As $N$ is located at $(0,0,1)$ in this orientation we can continue by testing each equation for $(z_n) \rightarrow \infty$.
+That is when $(z_n) \rightarrow \infty$ we notice the following:
+1. $x_1 \rightarrow 0$, as the numerator is lower order than the denominator.
+2. $x_2 \rightarrow 0$, as the numerator is lower order than the denominator.
+3. $x_3 \rightarrow 1$, as the numerator and denominator are of equivalent order.
 
 The stereographic projection defines a formal metric space.
 A metric space as defined in <d-cite key="conway"></d-cite>,
@@ -129,18 +137,22 @@ A metric space as defined in <d-cite key="conway"></d-cite>,
 3. $d(x,y) = d(y,x)$
 4. $d(x,z) \le d(x,y) + d(y,z)$
 
-In stereographic projection that metric $d$ is the defined as the arc length between two points $Z_a$ and $Z_b$.
-Distance can not be negative,
-    distance in terms of subtractions thus $x - y = 0 \implies x = y$,
-    and arc length between points on a sphere is commutative.
-The triangular inequality is less simple to prove but as this is distance in euclidean space,
-    In particular $S^2$ we can assume its truth without an elaborate proof.
+In stereographic projection that metric $d$ is the defined via Eq $\eqref{sphere-d}$ between two points $Z_a$ and $Z_b$.
 
-In the last section we showed stereographic projection to produce the description of a metric space over $$\mathbb{C}_\infty$$.
+It is the case that $d$ is non-negative for any $z \in \mathbb{C}$.
+That is the numerator is bound to a positive value multiplied by two and the denominator is addition of two square positive complex numbers.
+Unless of course $z = z'$,
+    which results in a zero numerator, thus zero.
+The commutativity of $d$ is true,
+    as the only problem would be the numerator term $2|z - z'|$.
+In particular the absolute value term which will always result in an absolute measure, assuring commutativity.
+The triangular inequality is given as $d$ inherits that those qualities of $\mathbb{R}^3$.
+
+In the last section we showed stereographic projection to produce the description of a metric space over $$\hat{\mathbb{C}}$$.
 Notice that we did this only through description of the sphere,
     not ignoring the plane but simply not needing to use it.
 We call this particular sphere $S^2$ or the Riemann sphere,
-    as it is that sphere containing all points of $$\mathbb{C}_\infty$$ derived from stereographic projection.
+    as it is that co-domain of the bijection between $$\hat{\mathbb{C}}$$ and $S^2$ derived from stereographic projection.
 
 {%
     include theme-images.html
@@ -149,6 +161,9 @@ We call this particular sphere $S^2$ or the Riemann sphere,
     alt="Riemann sphere 3D"
     caption="Figure 3: Riemann sphere"
 %}
+
+Let us here after define a _region_ to be some open, connected subset of $S^2$.
+In particular here I mean those open, connected subsets of a Riemann sphere.
 
 ## Computable analysis
 _Computable analysis_ investigates those theorems and functions of classical analysis,
@@ -185,15 +200,15 @@ Concluding this section will be a list of basic theorems to do with computabilit
 3. Computability is defined using Turing-machine (or equivalent) logic in Discrete space.
 
 # Computable Regions of Riemann sphere
-Computability describes those processes which can be described via mechanistic logic.
+Computability here, describes those processes which can be enumerated via mechanistic logic.
 Thus for any given Region of the Riemann sphere ($\hat{\mathbb{C}}$) to be considered computable it would have to be describable in some mechanistic logic.
-In particular it is true that such a region would need to be describable to a Turing machine.
+In particular it is true that such a region would need to be describable to a Turing machine <d-cite key="weihrauch_article"></d-cite>.
 This would make that Region Turing computable.
 It is the case that Turing machines exist only in discrete space,
     such that the infinite expansion (completeness) of continuous space is undefined within such a logic.
-Thus to define such a region of $\hat{\mathbb{C}}$ to a Turing machine that region must be limited to a discrete subset of $\hat{\mathbb{C}}$.
+Thus to define such a region of $\hat{\mathbb{C}}$ to a Turing machine that region would notably need to be limited to a countable subset of $\hat{\mathbb{C}}$.
 The above was my original thoughts on the problem,
-    thankfully it seems I was wrong.
+    thankfully it seems I was wrong (sort of).
 In particular, <d-cite key="weihrauch_article"></d-cite> <d-cite key="weihrauch_book"></d-cite>
     describes TTE as a form of logic making metric spaces computable.
 That is TTE projects $\mathbb{N}$ onto such subsets $M$ of a metric space $X$ such that $\mathbb{N}$ is describable to Turing machine thus implying the computability $M$.
@@ -213,8 +228,8 @@ In particular this rule is only accounting for a single side of the distance,
 Notably we can also assume that the metric space on $\mathbb{R}$ is computable for a given $(\mathbb{R}, d, \mathbb{Q}, v_\mathbb{Q})$.
 There exists a concept of computable continuous sets in <d-cite key="weihrauch_article"></d-cite>,
     though it seems to specific to use here.
-Given the above four rules and the knowledge that $(\mathbb{R}, d, \mathbb{Q}, v_\mathbb{Q})$ is a computable metric space,
-    we can begin an investigation.
+Given the above four rules and the knowledge that $(\mathbb{R}, d, \mathbb{Q}, v_\mathbb{Q})$ is a computable metric space via <d-cite key="weihrauch_article"></d-cite>,
+    we can begin an exploration.
 Recall that $\hat{\mathbb{C}}$ is the metric space $(\Sigma, d)$ where $\Sigma$ is the sphere and $d$ describes those points in relation to each other on that sphere.
 Given that the $\mathbb{R} \subset \mathbb{C} \implies \mathbb{R} \subset \hat{\mathbb{C}}$,
     such that if $\hat{\mathbb{C}}$ is a metric space with metric $d$ then there must exist $(\mathbb{R}, d) \subset \hat{\mathbb{C}}$.
@@ -222,13 +237,16 @@ In particular we know that there exist regions of $\hat{\mathbb{C}}$ which are c
 Let us assume that such a sub-region of that metric space is dense in $(\mathbb{R}, d)$.
 Further lets assume that it was $\mathbb{Q}$,
     this implies there exists an exact natural projection $\lambda : \mathbb{N} \rightarrow \mathbb{Q}$.
-Thus that subregion is computable$^\blacksquare$.
+Thus that subregion could be assumed computable, via <d-cite key="weihrauch_article"></d-cite> and TTE.
+This concludes my rather shallow exploration into computable regions of $\hat{\mathbb{C}}$.
 
 # Thoughts and future work
+As somewhat of a limitation my understanding of the theory of computability seems to be lacking almost as much analysis.
+Thus it is now a goal of mine to examine this again after expanding my understanding of the modern research in computability theory.
 This work is incredibly interesting,
     due to the nature of computability.
-Upon starting my research on mathematics in the continuous space (complex analysis) I believed computability to be impossible.
+Upon starting my research on mathematics in the continuous space (analysis) I believed computability to be impossible.
 It was my understanding that computable algorithms were limited to discrete space strictly.
-While it seems to be required to find natural projections to the target set,
+While it seems to be required to find natural projections to the domain,
     the rules seem to be less strict than I originally thought.
 I think I will continue to investigate computability while working through <d-cite key="conway"></d-cite>, <d-cite key="needham"></d-cite>, and Lang's book (not cited here).
