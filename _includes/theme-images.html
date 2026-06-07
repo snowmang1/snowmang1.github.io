@@ -1,0 +1,17 @@
+{% assign light_src = include.light | relative_url %}
+{% assign dark_src = include.dark | relative_url %}
+
+<figure class="theme-figure">
+  <img
+    class="theme-image"
+    src="{{ dark_src }}"
+    data-light="{{ light_src }}"
+    data-dark="{{ dark_src }}"
+    alt="{{ include.alt }}"
+    loading="lazy">
+
+  {% if include.caption %}
+  <figcaption class="theme-caption">{{ include.caption }}</figcaption>
+  {% endif %}
+</figure>
+

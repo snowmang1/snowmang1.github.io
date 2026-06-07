@@ -2,10 +2,10 @@
 layout: distill
 title: The Completeness Axiom
 description: A shallow investigation of a single axiom of the Real numbers leading to a realization about the Complex numbers
-tags: math set-theory
+tags: Math
 giscus_comments: false
 date: 2026-03-28
-featured: true
+featured: false
 mermaid:
   enabled: true
   zoomable: true

@@ -5,7 +5,7 @@ description: A look at mathematical induction
 tags: Math
 giscus_comments: false
 date: 2025-04-19
-featured: true
+featured: false
 mermaid:
   enabled: false
   zoomable: false

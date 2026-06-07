@@ -2,7 +2,7 @@
   type: map
   contents:
     - name: Full Name
-      value: Evan M Drake
+      value: Evan M. Drake
     - name: Location
       value: Chico, CA
 
@@ -13,8 +13,14 @@
       institution: CSU Chico
       year: 2024
       description:
-        - Computer science
+        - Computability research
         - AI research
+
+    - title: Bachelers
+      institution: CSU Chico
+      year: 2023
+      description:
+        - Compilers Capstone
 
 - title: Experience
   type: time_table
@@ -29,6 +35,8 @@
     - title: Intern
       institution: Liatrio
       year: 2022 - 2023
+      description:
+        - Dev-Sec-Ops
 
 - title: Volunteer work
   type: time_table
@@ -40,6 +48,11 @@
 - title: Academic Interests
   type: nested_list
   contents:
+    - title: Computability
+      items:
+        - Computable analysis
+        - Quantum algorithms
+        - Computable mathematics
     - title: Quantum computing
       items:
         - Quantum information theory
