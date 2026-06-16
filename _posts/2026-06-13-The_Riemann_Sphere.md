@@ -37,15 +37,13 @@ toc:
   - name: Introduction
   - name: Background
     subsections:
-      - name: Planes
+      - name: Complex plane
       - name: Spheres
-      - name: The complex plane
       - name: Metric spaces
-  - name: The Riemann sphere
-    subsections:
-      - name: Intuition
-      - name: Stereographic projection
-  - name: Relations
+  - name: Intuition
+  - name: Stereographic projection
+  - name: Chordal metric
+  - name: Topology
   - name: Nomenclature
   - name: References
 
@@ -66,27 +64,25 @@ I begin with recalling that definition of the two-dimensional plane (namely $\ma
     and the three-dimensional sphere.
 
 # Background
-## Planes
-Recall the Cartesian coordinate system,
-    that two axis system describing a two-dimensional plane.
-Notice that representation of a Cartesian plane in figure 1.
+Here I give a refresher on those assumptions or prior knowledge that I use without mentioning origin.
+Of course the scope of the refresher is within reason for the expected level of the reader.
+
+### Complex plane
+The complex numbers are an extension of $\mathbb{R}$,
+    such that any $z \in \mathbb{C}$ is composed of two real components and one imaginary component.
+That is for any such $z$ it is the case that $z = a + ib$ such that $a,b \in \mathbb{R}$ and $i$ is imaginary.
+This gives a rather simple geometric intuition wherein we use the two components to form our axis<d-cite key="lang"></d-cite>.
+A depiction of this relation can be seen in figure 1, borrowed from <d-cite key="lang"></d-cite>.
 
 {%
     include theme-images.html
     light="/assets/img/tikz/stereographic_proj/cart_plane_light.svg"
     dark="/assets/img/tikz/stereographic_proj/cart_plane_dark.svg"
-    alt="Stereographic projection 3D fig"
-    caption="Figure 1: Cartesian plane"
+    alt="a depiction of the complex plane"
+    caption="Figure 1: Complex plane"
 %}
 
-I describe the complex field in this article as that plane created via the $$\mathbb{R}$$ and imaginary component ($$\mathbb{I}$$) of a complex number.
-Notably the intuition is normally given as those perpendicular axis of a plane being represented as $$\mathbb{R}$$ and $$\mathbb{I}$$ <d-cite key="lang"></d-cite>.
-In particular,
-    we can now take any complex number $z = a + bi$ and index that number within $$\mathbb{C}$$ using this technique.
-This of course relying on that fact that for any plane we can index a single point of that plane using a two-tuple, some $(x,y)$.
-Thus some $MxM$ plane includes all those points inside of that $MxM$ space.
-
-## Spheres
+### Spheres
 A sphere as we can see from figure 4 is that shape containing no "edges" in the three-dimensional space.
 Being in a three-dimensional space describing a single point of any sphere requires a three-tuple, some $(x,y,z)$.
 That is a sphere contains those points lying not only on its surface but those contained inside the extrema as well.
@@ -98,14 +94,18 @@ In particular,
 That is the sphere itself could be treated as a two-dimensional surface,
     commonly referred to as $S^2$.
 
-<!-- TODO: write a short section that outlines how the complex plane is defined and why -->
-## The complex plane
+### Metric spaces
+A metric space describes that relation between some set and a function $(S, d)$.
+Such that those elements of the set $a,b \in S$ can be described in relation to each other via $d$.
+That is $d(a,b)$ will represent some distance between $a$ and $b$ <d-cite key="conway"></d-cite> <d-cite key="munkres"></d-cite> <d-cite key="g&g"></d-cite>.
+There exist four axioms that must be proven before a space $(S, d)$ can be treated as a metric space.
 
-<!-- TODO: write a short section that outlines how we define a metric space -->
-## Metric spaces
+1. $d(a,b) \ge 0, \forall a,b \in S$
+2. $d(a,b) = 0 \iff a = b, \forall a,b \in S$
+3. $d(a,b) = d(b,a), \forall a,b \in S$
+4. $d(a,c) \le d(a,b) + d(b,c), \forall a,b,c \in S$
 
-# The Riemann sphere
-## Intuition
+# Intuition
 It is common in analysis and further,
     topology to consider transformations with respect to $\infty$.
 Given the above section on $\mathbb{C}$ we can safely assume this is a problem given the finiteness of $\mathbb{C}$.
@@ -120,11 +120,11 @@ This implies a need for a metric that will both give that distance between point
     while not allowing any point to be finitely close to the singularity $\infty$.
 Thus we use _stereographic projection_ as the metric function on $$\mathbb{C}_\infty$$.
 
-## Stereographic projection
-Stereographic projection describes a technique for relating a unit sphere to some plane,
-    such that each point of the plane is related to a fixed point on the sphere.
-Let the spheres orientation be fixed such that a north most point $N$ can be fixed as the north pole at location $(0,0,1)$.
-We can see a two dimensional representation of this in figure 2.
+# Stereographic projection
+Stereographic projection describes a technique for relating a unit sphere to some plane <d-cite key="needham"></d-cite>,
+such that each point of the plane is related to a fixed point on the sphere.
+Let the spheres orientation be fixed such that a north most point $$N$$ can be fixed as the north pole at location $$(0,0,1)$$.
+We can see a two dimensional representation of this in figure 2 (taken from <d-cite key="needham"></d-cite>).
 
 {%
     include theme-images.html
@@ -133,11 +133,18 @@ We can see a two dimensional representation of this in figure 2.
     alt="Stereographic projection 2D view"
     caption="Figure 2: 2D stereographic projection"
 %}
+{%
+    include theme-images.html
+    light="/assets/img/tikz/stereographic_proj/single_z_light.svg"
+    dark="/assets/img/tikz/stereographic_proj/single_z_dark.svg"
+    alt="Stereographic projection 2D view"
+    caption="Figure 2.5: 3D stereographic projection"
+%}
 
 Mapping those points of the plane $$\mathbb{C}_\infty$$ to some points on the sphere $S^2$,
-    requires we use out reference point and a straight line.
+    requires we use our reference point and a straight line.
 In particular if we take any point on the plane and induce a line through the fixed point $N$,
-    it is the case the almost all the lines will pass through the surface of the sphere at some point other than $N$.
+    it is the case the almost all the lines will pass through the surface of the sphere at some point other than $N$<d-cite key="conway"></d-cite>.
 This is untrue of $\infty$ for reasons we will explore later.
 That is if we consider stereographic projection to be some function $f: \mathbb{C}_\infty \rightarrow S^2$.
 In particular we can define $f$ by Eq $eqref{eq:stereo_mapping}$.
@@ -175,7 +182,7 @@ $$
 We find the Eq $\eqref{eq:z1_z2}$ describes a contradiction as the only way for $f(z_1) = f(z_2)$ is that $z_1 = z_2$,
     therefore $f$ is injective$^\blacksquare$.
 
-## Chordal Metric on $$S^2$$
+# Chordal metric
 Here I will describe that metric that allows us to formulate the distance between two points of $S^2$.
 I accomplish this using that metric space $\widehat{\mathbb{C}} := (S^2, d)$ where the function $d$ is the _chordal distance_.
 That is the euclidean distance between two points on the surface of the sphere <d-cite key="conway"></d-cite>.
@@ -194,6 +201,7 @@ $$
 \end{equation}
 $$
 
+<!-- TODO: Proof checks -->
 _Proposition_. $$d(z,z') \ge 0, \forall z,z' \in \mathbb{C}_\infty$$<d-footnote>
     As the equation is derived from euclidean distance on $\mathbb{R}^3$ the contradiction is absurd.
     </d-footnote>.
@@ -227,19 +235,75 @@ Therefore $d$ meets the axiom of symmetry$^\blacksquare$.
 
 _Propostion_. $$d(z,z'') \le d(z,z') + d(z,z''), \forall z,z',z'' \in \mathbb{C}_\infty$$
 
-_Proof_. 
+_Proof_. The geometric representation of the function $d(a,b)$ is that straight line from $a$ to $b$ in $\mathbb{R}^3$.
+It can then be assumed that three points would form a triangle,
+    which can be represented a plane as in figure 3.
+Thus any three points of $\widehat{\mathbb{C}}$ such that the function $d$ maps them all in the form of the proposition above will form a triangle.
+Observe one such triangle depicted in figure 3.
+In particular,
+    it is impossible for such a shape to have a side length larger than the sum of the two others.
+That is for any triangle with arbitrary side lengths ${a,b,c}$ it is an impossibility that $a > b+c$,
+    thus it must be true that $a \le b+c$ as in the case of the current proposition$^\blacksquare$.
 
-$$
-\begin{equation} \label{proof:triangular}
-\end{equation}
-$$
+{%
+    include theme-images.html
+    light="/assets/img/tikz/stereographic_proj/euclidean_triangle_light.svg"
+    dark="/assets/img/tikz/stereographic_proj/euclidean_triangle_dark.svg"
+    alt="triangle created by the distance between z, z', and z''."
+    caption="Figure 3: Triangle created from distance between three points of $\mathbb{R}^3$"
+%}
 
+Thus we prove that the chordal metric $d$ can be used to form the metric space $(\widehat{\mathbb{C}}, d) = (S^2, d)$.
+That metric space $$\widehat{\mathbb{C}}$$ is referred to as the Riemann sphere <d-cite key="needham"></d-cite>.
+In particular it is that projection of $$\mathbb{C}_\infty$$ onto $S^2$ via stereographic projection depicted in figure 4.
+Such that each point of the extended complex field is mapped so some point on $S^2$.
 
-<!-- TODO: Write about the topology of S^2 with emphasis on open sets, neighborhoods, convergence to \infty, and the compactification of C. -->
-# Relations
-Here I will describe that topology of $$\widehat{\mathbb{C}}$$ in relation to that of $$\mathbb{C}$$.
+{%
+    include theme-images.html
+    light="/assets/img/tikz/stereographic_proj/riemann_sphere_light.svg"
+    dark="/assets/img/tikz/stereographic_proj/riemann_sphere_dark.svg"
+    alt="a depiction of the Riemann sphere"
+    caption="Figure 4: A depiction of the Riemann sphere"
+%}
+
+# Topology
+It is the case that $$\widehat{\mathbb{C}}$$ is a compactification of $\mathbb{C}$.
+To understand this we must examine those aspects of $\mathbb{C}$ which make it non-compact.
+In particular for $\mathbb{C}$ to be compact it must be complete,
+    thus it must contains all the limit points of its convergent subsets<d-cite key="conway"></d-cite>.
+Thus any such infinite convergent sequence in $\mathbb{C}$ must have a limit in $\mathbb{C}$.
+The existence of a sequence $$(x_n) \in \mathbb{C}$$ such that $$(x_n) \rightarrow \infty$$,
+    would prove the non-compactness of $\mathbb{C}$.
+Recall it was the purpose of constructing $$\widehat{\mathbb{C}}$$ for such sequences $$(x_n) \in \mathbb{C}$$,
+    thus proving its non-compactness.
+Therefore if $$\widehat{\mathbb{C}}$$ is compact then it must contain those limit points for such infinite sets.
+Recall that the subset of a convergent set is itself convergent as well.
+
+_Proposition_. $$\widehat{\mathbb{C}}$$ is compact
+
+_Lemma_ 1. A set is compact is all infinite subsets contain a limit point <d-cite key="conway"></d-cite>.
+
+_Lemma_ 2. Weierstrass-Bolzano: If S is an infinite bounded set of real numbers, then S has a point of accumulation<d-cite key="lang"></d-cite>.
+
+_Proof_. Consider all infinite $X \widehat{\mathbb{C}}$.
+The set $X$ may either be bounded or unbounded.
+
+_Case bounded_. If $X$ is bounded then it contains a subsequence $(x_n) \subset X$ such that $(x_n)$ is convergent by Lemma 2.
+
+_Case unbounded_. If $X$ is unbounded then there exists a sequence $(x_n) \subset X$ such that $(x_n) \rightarrow \infty$.
+Recall that $\infty$ is treated as an ordinary point in $\widehat{\mathbb{C}}$.
+
+Given that for all infinite sets $X$ of $\widehat{\mathbb{C}}$ there exists some sequence $(x_n) \subset X$ by Lemma 1 $\widehat{\mathbb{C}}$ is compact$^\blacksquare$.
 
 # Nomenclature
 1. $$\mathbb{C}$$: symbol representing the complex numbers.
 2. $$\widehat{\mathbb{C}}$$: symbol representing the Riemann sphere.
 3. $$\mathbb{R}$$: symbol representing the real field.
+4. $$x \in X$$: $x$ is an element of the set $X$.
+5. $$P \implies Q$$: the truth of the proposition P implies the truth of the proposition Q.
+6. $$P \iff Q$$, $P$ iff $Q$: P is the true if and only if Q is true.
+7. $$\widehat{\mathbb{C}}$$: symbol for the Riemann sphere.
+8. $$\forall x \in S$$: "forall", meaning $x$ represents all elements of $S$ recursively.
+9. $$(x_n)$$: denotes a sequence of size $n$.
+10. $$(x_n) \rightarrow x$$: the sequence $(x_n)$ converges to limit point $x$.
+11. $$\exists x \in X$$: there exists some element $x$ contained in the set $X$.
