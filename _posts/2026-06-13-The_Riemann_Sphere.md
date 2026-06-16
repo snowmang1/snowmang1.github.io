@@ -35,7 +35,6 @@ citation: true
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
   - name: Introduction
-  - name: Background
     subsections:
       - name: Complex plane
       - name: Spheres
@@ -60,18 +59,17 @@ toc:
 
 # Introduction
 Here I give an exposition of the Riemann sphere $$\widehat{\mathbb{C}}$$.
-I begin with recalling that definition of the two-dimensional plane (namely $\mathbb{C}$),
-    and the three-dimensional sphere.
-
-# Background
-Here I give a refresher on those assumptions or prior knowledge that I use without mentioning origin.
-Of course the scope of the refresher is within reason for the expected level of the reader.
+Beginning with the complex plane $\mathbb{C}$ I explore the necessary background information.
+I then construct the Riemann sphere $\widehat{\mathbb{C}}$ via a geometric and analytic intuition.
+In particular the introduction of the extended complex plane and stereographic projection via light proof work.
+This will present that homeomorphic mapping from the extended complex plane to the Riemann sphere.
+Finally I explore shallowly that topology of the Riemann sphere that will be used in later articles.
 
 ### Complex plane
-The complex numbers are an extension of $\mathbb{R}$,
-    such that any $z \in \mathbb{C}$ is composed of two real components and one imaginary component.
+The complex numbers are an extension of $\mathbb{R}$;
+    any $z \in \mathbb{C}$ is composed of two terms one real and one imaginary.
 That is for any such $z$ it is the case that $z = a + ib$ such that $a,b \in \mathbb{R}$ and $i$ is imaginary.
-This gives a rather simple geometric intuition wherein we use the two components to form our axis<d-cite key="lang"></d-cite>.
+This gives a rather simple geometric intuition wherein we use the two terms to form our axis <d-cite key="lang"></d-cite>.
 A depiction of this relation can be seen in figure 1, borrowed from <d-cite key="lang"></d-cite>.
 
 {%
@@ -84,21 +82,22 @@ A depiction of this relation can be seen in figure 1, borrowed from <d-cite key=
 
 ### Spheres
 A sphere as we can see from figure 4 is that shape containing no "edges" in the three-dimensional space.
-Being in a three-dimensional space describing a single point of any sphere requires a three-tuple, some $(x,y,z)$.
+Being in a three-dimensional space describing a single point of any sphere requires a three-tuple,
+    some $(x,y,z)$.
 That is a sphere contains those points lying not only on its surface but those contained inside the extrema as well.
 Note that some point $(x,y,z)$ need not always be located on a surface.
 In the context of the discussion that follows,
     note that a fundamental rule of three-dimensionality is that the sphere contains those points within itself.
 In particular,
     if the sphere did not contain those points within or if those points where unreachable then that sphere could be thought of as two dimensional.
-That is the sphere itself could be treated as a two-dimensional surface,
+That is the sphere itself could be treated as a two-dimensional surface projected in three-dimensional space,
     commonly referred to as $S^2$.
 
 ### Metric spaces
 A metric space describes that relation between some set and a function $(S, d)$.
-Such that those elements of the set $a,b \in S$ can be described in relation to each other via $d$.
-That is $d(a,b)$ will represent some distance between $a$ and $b$ <d-cite key="conway"></d-cite> <d-cite key="munkres"></d-cite> <d-cite key="g&g"></d-cite>.
-There exist four axioms that must be proven before a space $(S, d)$ can be treated as a metric space.
+Such that those elements $a,b \in S$ can be described in relation to each other via $d$.
+That is $d(a,b)$ will represent some metric between $a$ and $b$ <d-cite key="conway"></d-cite> <d-cite key="munkres"></d-cite> <d-cite key="g&g"></d-cite>.
+There exist four rules that must be proven before a space $(S, d)$ can be treated as a metric space.
 
 1. $d(a,b) \ge 0, \forall a,b \in S$
 2. $d(a,b) = 0 \iff a = b, \forall a,b \in S$
