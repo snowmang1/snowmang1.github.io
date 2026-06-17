@@ -12,17 +12,17 @@
 \fill[white] (0,2) circle (1.5pt) node[above] {$N$};
 
 % equator
-\draw[dashed,white] (0,0) ellipse (2 and 0.6);
+% \draw[dashed,white] (0,0) ellipse (2 and 0.6);
 
 % lower plane
 \draw[thick,white]
   (-6,-1.6) -- (6,-1.8);
 
 % projection
-\fill[white] (4,-1) circle (1.5pt) node[below right] {$z$};
-\draw[dashed,thick,white] (0,2) -- (4,-1);
+\draw[white, dashed, thick] (0,2) -- (1.5, 0.5) circle (2pt) node[above right] {$Z$};
+\draw[white, thick] (1.5, 0.5) -- (3, -1) circle (2pt) node[above right] {$z$};
 
-% sphere intersection
-\fill[white] (1.89,0.58) circle (2pt) node[above right] {$Z$};
-
+%continuation of line
+\draw[white, thick, ->] (0,2) -- (-0.5, 2.5);
+\draw[white, thick, ->] (3, -1) -- (3.5, -1.5);
 \end{tikzpicture}
