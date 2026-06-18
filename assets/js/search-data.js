@@ -51,15 +51,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-riemann-sphere-39-s-and-computability",
+        },{id: "post-the-riemann-sphere",
         
-          title: "Riemann Sphere&#39;s and Computability",
+          title: "The Riemann sphere",
         
-        description: "article",
+        description: "description of the Riemann sphere with emphasis on how it is derived from the complex plane.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/Riemann_sphere/";
+            window.location.href = "/blog/2026/The_Riemann_Sphere/";
           
         },
       },{id: "post-the-completeness-axiom",
@@ -212,6 +212,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/news_2025-05-24/";
+            },},{id: "news-revising-39-riemann-spheres-and-computability-39",
+          title: 'Revising &amp;#39;Riemann Spheres and Computability&amp;#39;',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/news_2026-06-12/";
             },},{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
