@@ -1,0 +1,9 @@
+\begin{tikzpicture}
+	\path [white, draw, help lines, opacity=.5]  (-5,-5) grid (5,5);
+	\foreach \i in {1,...,4} \draw [white] (\i,2.5pt) -- +(0,-5pt) node [white, anchor=north, font=\small] {$\i$} (-\i,2.5pt) -- +(0,-5pt) node [white, anchor=north, font=\small] {$-\i$} (2.5pt,\i) -- +(-5pt,0) node [white, anchor=east, font=\small] {$\i$} (2.5pt,-\i) -- +(-5pt,0) node [white, anchor=east, font=\small] {$-\i$};
+	\draw [white, ->] (-5,0) -- (5,0) node [anchor=south] {$x$};
+	\draw [white, ->] (0,-5) -- (0,5) node [anchor=west] {$y$};
+	\draw [red,-] (-2,2) -- (2,-2) node [white, anchor=west] {$z$};
+	\draw [white, -] (2,1) -- (-2,2) node [anchor=east] {$z'$};
+	\draw [white,-] (2,-2) -- (2,1) node [anchor=south] {$z''$};
+\end{tikzpicture}
