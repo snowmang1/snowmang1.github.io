@@ -9,7 +9,7 @@ categories: math non-fiction analysis
 tags: math analysis
 buy_link: https://www.amazon.com/Functions-Complex-Variable-Graduate-Mathematics/dp/0387903283
 started: 2026-02-20
-finished: present
+finished:
 released: 1978
 stars:
 goodreads_review:
