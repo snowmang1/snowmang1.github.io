@@ -18,10 +18,11 @@ chart:
 tikzjax: false
 typograms: false
 
-authors: Evan Drake
-url: "https://snowmang1.github.io/"
-affiliations:
-  name: Butte College
+authors:
+    - name: evan drake
+      url: "https://snowmang1.github.io/"
+      affiliations:
+        name: butte college
 
 bibliography: 2026-06-13-The_Riemann_Sphere.bib
 
