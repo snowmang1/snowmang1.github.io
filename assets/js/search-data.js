@@ -217,6 +217,11 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/news/news_2026-06-12/";
+            },},{id: "news-the-ackermann-function",
+          title: 'The Ackermann function',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/news_2026-07-16/";
             },},{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
