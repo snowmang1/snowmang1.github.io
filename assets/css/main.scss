@@ -42,3 +42,21 @@ html[data-theme="dark"] {
   color: var(--caption-color);
   font-style: italic;
 }
+
+.prop-block {
+    border-left: 4px solid #fe640b;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.proof-block {
+    border-left: 1px solid #04a5e5;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.proof-block::after {
+    content: "■";
+    float: right;
+}
+
