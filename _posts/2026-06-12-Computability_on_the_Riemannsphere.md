@@ -51,12 +51,15 @@ toc:
 # Can be used for custom style elements
 ---
 # Introduction
-<!-- TODO: revise to fit draft 2 -->
-I intend to examine the Riemann sphere again,
-    this time in terms of its computable regions.
-In particular does there exist those regions of $\widehat{\mathbb{C}}$ and what do those regions looks like.
-To this end I find myself examining how computability is defined on analytic structures,
-    and required restrictions on such regions of those structures.
+I examine the Riemann sphere in terms of its computability.
+In particular does there exist those regions of $\widehat{\mathbb{C}}$ that can be proven recursive and how?
+To this end I find myself examining how computability is defined on analytic structures.
+Which structures can be explored in terms of recursion theory,
+    and if they can be explored how?
+It is precisely these questions that I explore in the article.
+In the pursuit of the above queries an exploration of topology seemed enjoyable and necessary.
+Once the topology of $\widehat{\mathbb{C}}$ is described shallowly,
+    the article shifts to finding a suitable theory of recursion for a possible proof.
 
 # Topology of Riemann sphere
 Here I discuss the topology $\widehat{\mathbb{C}}$ defined by $$\mathbb{C}_\infty$$ and the chordal metric $d$ (stereographic projection) described in <d-cite key="drake"></d-cite>.
@@ -297,13 +300,13 @@ We first examine the use of classical computability applied to the problem,
     then examine some more modern methodology.
 
 ## Classical approach
-<!-- TODO: [1] fully computable, [2] partially computable -->
 To examine the computability of any region of $\widehat{\mathbb{C}}$ it is imperative to understand what it means for a set to be _computable_.
 First it is said that a set is _recursive_ when its characteristic function is computable <d-cite key="cutland"></d-cite>.
-A sets characteristic function is that function corresponding to the predicate $x \in A$.
+Moving forward note that this article will use the term recursive when discussing sets,
+    and computable when discussing functions.
+A sets characteristic function is the ownership defining function corresponding to the predicate $x \in A$.
 Formally for any set $A$ the characteristic function $c_A: \mathbb{N} \rightarrow A$ is that function which computes $x \in A$.
-Notably the predicate $x \in A$ must be decidable or $c_A$ can not be computed,
-    the reasoning is shown explicitly in Eq. $\eqref{fxn:c_A}$.
+Notably $c_A$ shown in Eq. $\eqref{fxn:c_A}$ is computable iff $x \in A$ is a _decidable_ predicate.
 
 $$
 \begin{equation} \label{fxn:c_A}
@@ -317,16 +320,14 @@ $$
 
 It is clear that a set is recursive only when its characteristic function is computable,
     thus possessing a decidable predicate $x \in A$.
-Via <d-cite key="cutland"></d-cite> all characteristic functions (recursive sets) are defined with denumerable domains,
+Via <d-cite key="cutland"></d-cite> all characteristic functions (recursive sets) are defined with denumerable domains (domains mappable to $\mathbb{N}$),
     as the sets themselves must be denumerable.
 In particular,
     it is the case that in classical computability recursive sets are defined to be natural or natural adjacent <d-cite key="cutland"></d-cite>.
-Thus classical computability via <d-cite key="cutland"></d-cite> has no power over $\widehat{\mathbb{C}}$,
-    a truly unfortunate result.
+Notably classical computability via <d-cite key="cutland"></d-cite> has no power over $\widehat{\mathbb{C}}$.
+This result implies that it is an impossibility to use classical recursion theory to investigate $\widehat{\mathbb{C}}$.
 
-<!-- TODO: define computability of analytic structures -->
 ## Computable topologies
-<!-- TODO: introduce TTE -->
 Having deduced that classical computability does not have the power to examine the computability of $\widehat{\mathbb{C}}$ we turn to modern approaches.
 The space of computability I investigate here is that of _metric spaces_ under $\mathbb{R}^n$.
 There exists a literature for computability on metric spaces belonging to $\mathbb{R}^n$ <d-cite key="frauendiener_klein"></d-cite>
@@ -336,14 +337,14 @@ There exists a literature for computability on metric spaces belonging to $\math
 The literature describes the "classical approach" above as _type one_ theory of computability.
 As discussed the type one theory is ineffective on spaces on the order of $\mathbb{R}^n$ where $n \ge 1$.
 The literature then converges on <d-cite key="weihrauch_comp"></d-cite> <d-cite key="weihrauch_book"></d-cite>
-    which describe the _type two_ theory of computability (TTE) which works in spaces on the order of $\mathbb{R}^n$.
+    which describes the _type two_ theory of computability (TTE) which works in spaces on the order of $\mathbb{R}^n$.
 The TTE has only appeared so far in writings stemming from <d-cite key="weihrauch_book"></d-cite> in my readings.
 There exist previous sources of computability on broader spaces than $\mathbb{N}$ though none as general as TTE.
 Notably TTE claims power enough to prove $\mathbb{R}$ a computable space <d-cite key="weihrauch_article"></d-cite>.
 For the scope of $\widehat{\mathbb{C}}$ TTE provides insight into computability of metric spaces.
-Such that TTE describes a theory of computability tied to topology <d-cite key="weihrauch_book"></d-cite><d-footnote>
-    A truly amazing proposition, though learning it is a humbling experience </d-footnote>.
+Such that TTE describes a theory of computability tied to specific topologies known as _Baire spaces_ <d-cite key="weihrauch_book"></d-cite>.
 TTE describes a computable metric space as the four tuple $\bar{M}$ described in Eq. $\eqref{eq:tte-m}$.
+Dictating that the cardinality of $M$ be at most that of a _Baire space_, $card(M) \le card(\mathbb{B})$.
 
 $$
 \begin{equation} \label{eq:tte-m}
@@ -356,14 +357,14 @@ $$
 3. $\alpha : \mathbb{N} \rightarrow A$ is a total numbering of $A$
 4. $D_{<} := \{ \langle i, j, k \rangle \mid d(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k) \}$ is recursively enumerable
 
-With this definition of computability is said that $\mathbb{R}$ is a computable metric space via TTE <d-cite key="weihrauch_article"></d-cite>.
-Conceivably if $\mathbb{R}$ is a computable space,
-    intuition dictates that $\widehat{\mathbb{C}}$ could as well.
+Intuitively if $\mathbb{R}$ is computable via TTE then so should be $\mathbb{C}$.
+The key to a proof seems to be finding a dense, denumerable subset of $\mathbb{C}$.
+I have selfishly stopped myself from searching the literature for such a set,
+    as my intuition tells me that one exists.
+If such a set exists for $\mathbb{C}$ one could conceivably build a proof intuitively given a partial order is chosen.
+It is much more difficult to imagine a proof of $\widehat{\mathbb{C}}$ as a dense set would need to include $\infty$ as a limit point while still being denumerable.
 
 # Future work
-<!-- TODO: intersect computability of analytic structures and C-hat -->
-<!-- INFO:  Possible computable regions of the sphere if any exist; Why is it difficult to describe or induce?
-            What makes the regions of the sphere computable or not?-->
 I would love to dedicate a full length article to the proof of computability of $\widehat{\mathbb{C}}$ via TTE.
 There is a fair amount of work in the area of topological computability by Brattka and Weihrauch that I intend to consume.
 The field itself is very interesting especially paired with Conway's texts on complex analysis.
@@ -379,3 +380,4 @@ Alas my number theory, topology, and analysis are all just a bit too under devel
 6. $S^2$: The unit sphere projected in $\mathbb{R}^3$.
 7. $\exists x$: There "exists" some value $x$
 8. $v_\mathbb{Q}: \mathbb{N} \rightarrow \mathbb{Q}$: the standard numbering on $\mathbb{Q}$ inherited from <d-cite key="weihrauch_article"></d-cite>.
+9. $\mathbb{B}$: Baire space notation inherited from <d-cite key="weihrauch_article"></d-cite>.
