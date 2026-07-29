@@ -51,7 +51,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-the-riemann-sphere",
+        },{id: "post-computable-regions-of-the-riemann-sphere",
+        
+          title: "Computable regions of the Riemann sphere",
+        
+        description: "Exploring computability in the context of the Riemann sphere",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Computability_on_the_Riemannsphere/";
+          
+        },
+      },{id: "post-the-riemann-sphere",
         
           title: "The Riemann sphere",
         
@@ -100,16 +111,41 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/Functions_of_one_complex_variable/";
+            },},{id: "books-ordinary-differential-equations",
+          title: 'Ordinary differential equations',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/Ordinary_differential_equations/";
             },},{id: "books-the-oxford-handbook-of-the-philosophy-of-consciousness",
           title: 'The Oxford Handbook of the Philosophy of Consciousness',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/Oxford_handbook_phil_conscious/";
+            },},{id: "books-a-book-of-abstract-algebra",
+          title: 'A book of abstract algebra',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/a_book_on_abstract_algebra/";
             },},{id: "books-algebraic-number-theory",
           title: 'Algebraic number theory',
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/algebraic_num_theory/";
+            },},{id: "books-an-introduction-to-mathematical-logic",
+          title: 'An introduction to mathematical logic',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/an_intro_to_mathematical_logic/";
+            },},{id: "books-computability-an-introduction-to-recursive-function-theory",
+          title: 'Computability, An introduction to recursive function theory',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/computability_an_intro_to_recursive_function_theory/";
+            },},{id: "books-computable-analysis-quot-quot-an-introduction",
+          title: 'Computable analysis&amp;quot;:&amp;quot; An introduction',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/computable_analysis_an_intro/";
             },},{id: "books-elements-of-programming",
           title: 'Elements of Programming',
           description: "",
