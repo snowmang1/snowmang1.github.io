@@ -51,6 +51,7 @@ toc:
 # Can be used for custom style elements
 ---
 # Introduction
+<!-- TODO: revise to fit draft 2 -->
 I intend to examine the Riemann sphere again,
     this time in terms of its computable regions.
 In particular does there exist those regions of $\widehat{\mathbb{C}}$ and what do those regions looks like.
@@ -58,29 +59,31 @@ To this end I find myself examining how computability is defined on analytic str
     and required restrictions on such regions of those structures.
 
 # Topology of Riemann sphere
-Here I will discuss that topology of $\widehat{\mathbb{C}}$ defined by the chordal metric $d$ described in <d-cite key="drake"></d-cite>.
+Here I discuss the topology $\widehat{\mathbb{C}}$ defined by $$\mathbb{C}_\infty$$ and the chordal metric $d$ (stereographic projection) described in <d-cite key="drake"></d-cite>.
 That is the topology $\mathcal{T} := (\widehat{\mathbb{C}}, d)$.
-All topologies must be adherent to those topological axioms described in <d-cite key="g&g"></d-cite>:
-For any set $X$, the topology $\mathcal{T}$ has the following properties
+All topologies must adhere to the axiomatic definition of a topology <d-cite key="g&g"></d-cite>.
+For any set $X$, the topology $\mathcal{T}$ has the following properties:
 
 $
 \begin{equation} \label{axiom:topo-1}
     X, \emptyset \in \mathcal{T}
 \end{equation}
 $
+
 $
 \begin{equation} \label{axiom:topo-2}
-    (A, B \in X) \implies (A \cup B \in \mathcal{T})
-\end{equation}
-$
-$
-\begin{equation} \label{axiom:topo-3}
-    (n \in \mathbb{N} \land n \ne \infty), \cap_{j<n} X_j \in T
+    (A, B \in \mathcal{T}) \implies (A \cup B \in \mathcal{T})
 \end{equation}
 $
 
-A metric topology is usually defined such that every open set corresponds to an open ball.
-An open ball is defined by <d-cite key="conway"></d-cite>.
+$
+\begin{equation} \label{axiom:topo-3}
+    (n \in \mathbb{N} \land n \ne \infty), \cap_{j<n} \mathcal{T}_j \in \mathcal{T}
+\end{equation}
+$
+
+A metric topology is defined such that every open set corresponds to an open ball.
+An open ball is defined by <d-cite key="conway"></d-cite> can be seen in Eq. $\eqref{eq:open-ball}$.
 
 $
 \begin{equation} \label{eq:open-ball}
@@ -89,7 +92,7 @@ B(x; r) = \{y \in X: d(x,y) < r\}
 $
 
 In particular it is the set created when given some point $x$ all points $y$ are defined by the radius $r$.
-Those points $y$ are within the distance $r$ defined by the metric function $d$.
+Those points $y$ are within the distance $r$ defined by the metric function $d$ of $x$.
 It is important to note that those points at exactly distance $r$ are excluded from the set.
 The topology investigated here is the metric topology where all open sets are defined by the open ball Eq. $\eqref{eq:open-ball}$.
 
@@ -130,7 +133,7 @@ According to <d-cite key="g&g"></d-cite> any basis of a topology must have the f
 
 $$
 \begin{align}
-    \mathcal{B} &\subset X \\
+    \bigcup \mathcal{B} &\subset X \\
     \label{prop:elem-in-B}
     (x \in X) &\implies (\exists B(x;\epsilon) \subset \mathcal{B}: \epsilon > 0) \\
     \label{prop:intersection-W}
@@ -161,8 +164,6 @@ That is if we have two non-disjoint open balls $B$ and $V$ such that there inter
 
 Now that I have crafted a somewhat convincing argument for the existence of a topology on $(\widehat{\mathbb{C}}, d)$ let us analyze it.
 
-<!-- TODO: Open and closed sets as they appear on the sphere -->
-<!-- TODO: it would be a good idea to add a more concrete definition of an open set -->
 A metric topology such as $\mathcal{T}$ is defined by its open sets,
     recall the basis is a family of open sets.
 Open sets are defined in a metric topology as those sets centered on an element $x$.
@@ -202,7 +203,6 @@ That is no finite point $z$ is ever closer to the point infinity than $d(z, \inf
     caption="Figure 3: visualization of equivalently distant elements from zero"
 %}
 
-<!-- TODO: add that closed sets must be bounded and contain all their limit points -->
 We can see three different open balls in Figure 3,
     all centered on the zero point or the south pole.
 In particular we have three open balls such that $B'' \subset B' \subset B$,
@@ -215,7 +215,6 @@ In particular, it is usual to call these sets closed balls $$\bar{B}(z; \epsilon
 As a final note I would assert that not all open and closed sets are as uniform as the above visualizations make them seem,
     it is simply easier to demonstrate with smooth uniform sets.
 
-<!-- TODO: prove the compactification of \widehat{\mathbb{C}} -->
 The second important topological examination needed for the article is that of compact sets.
 A set is compact if every open cover of it has a finite subcover <d-cite key="g&g"></d-cite> <d-cite key="conway"></d-cite>.
 Intuitively that is for ever family of open sets $$\{U_\alpha\}_{\alpha \in A}$$ the union of that family is the topological space $$\bigcup \{U_\alpha\}_{\alpha \in A} = X$$.
@@ -284,7 +283,6 @@ I love this proof, however it does make me nervous due to its shortness </d-foot
 </div>
 
 # Computability
-<!-- INFO: Seting the stage for proof work, background info -->
 A computable process is usually defined as that mechanical logic which accomplishes some decidable predicate in finitely many steps <d-cite key="cutland"></d-cite>.
 In particular,
     the idea of computability is heavily dependant on the logic in use.
@@ -297,6 +295,7 @@ In particular this means that here a computable function utilizes the Turing mac
 <!--     thus an example in either infers the equivalent concept the in the other. -->
 We first examine the use of classical computability applied to the problem,
     then examine some more modern methodology.
+
 ## Classical approach
 <!-- TODO: [1] fully computable, [2] partially computable -->
 To examine the computability of any region of $\widehat{\mathbb{C}}$ it is imperative to understand what it means for a set to be _computable_.
