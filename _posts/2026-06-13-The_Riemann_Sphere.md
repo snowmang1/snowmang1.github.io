@@ -5,7 +5,7 @@ description: description of the Riemann sphere with emphasis on how it is derive
 tags: Math
 giscus_comments: false
 date: 2026-06-13
-featured: true
+featured: false
 mermaid:
   enabled: false
   zoomable: false
@@ -18,10 +18,11 @@ chart:
 tikzjax: false
 typograms: false
 
-authors: Evan Drake
-url: "https://snowmang1.github.io/"
-affiliations:
-  name: Butte College
+authors:
+    - name: Evan Drake
+      url: "https://snowmang1.github.io/"
+      affiliations:
+        name: butte college
 
 bibliography: 2026-06-13-The_Riemann_Sphere.bib
 

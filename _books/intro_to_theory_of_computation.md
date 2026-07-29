@@ -16,6 +16,6 @@ goodreads_review:
 status: finished
 ---
 
-This is a rehashing of Hopcroft-Ullman,
+This is a rehashing of Hopcroft-Motwani-Ullman,
     in a more intuitive way.
-It is not an exaguration to say this is among my favorite computer science books.
+It is not an exaggeration to say this is among my favorite undergraduate computer science books.
