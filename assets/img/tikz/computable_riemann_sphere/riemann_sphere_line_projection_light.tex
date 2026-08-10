@@ -19,17 +19,7 @@
   % Equator (great circle in xy-plane)
   \draw[thick, black] (O) circle (\r);
 
-	\def\R{0.5}      % main circle radius
-  \def\alpha{30}   % half-angle of cavity
-
-	\coordinate (C) at (-0.5 + \alpha * 0.002, 1);	% center of a circle
-
-	\shade[ball color=black] (C) circle (0.00) node[above, black] {$B(z;\epsilon)$};
-
-  % main circle minus top
-  \draw[thick, black] (C) arc[start angle=180+\alpha, end angle=360-\alpha, radius=\R];
-
-  \draw[thick, black] (C) arc[start angle=180-\alpha, end angle=360+\alpha, radius=\R];
-
+	\draw (0,0) ellipse (0.4cm and 0.45cm);
+	\node[above left, black] at (-0.3,0.3) {$B(x;\epsilon)$};
 \end{tikzpicture}
 
