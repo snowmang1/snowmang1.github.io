@@ -75,13 +75,17 @@ $
 
 $
 \begin{equation} \label{axiom:topo-2}
-    (A, B \in \mathcal{T}) \implies (A \cup B \in \mathcal{T})
+    \mathcal{U} \subseteq \mathcal{T} \implies \bigcup \mathcal{U} \in \mathcal{T}
 \end{equation}
 $
 
 $
 \begin{equation} \label{axiom:topo-3}
-    (n \in \mathbb{N} \land n \ne \infty), \cap_{j<n} \mathcal{T}_j \in \mathcal{T}
+    n \in \mathbb{N},
+    \quad 
+    \mathcal{U}_1, \ldots, \mathcal{U}_n \in \mathcal{T}
+    \implies
+    \bigcap_{j=1}^n \mathcal{U}_j \in \mathcal{T}
 \end{equation}
 $
 
@@ -108,11 +112,19 @@ $\mathcal{T} := (\widehat{\mathbb{C}}, d)$ forms a metric topology over $\wideha
 <div class="proof-block" markdown="1">
 **Proof.**
 
-Note the construction of $\mathcal{T}$ is described by Eq. $\eqref{eq:topo-construction}$.
+Note the construction of $\mathcal{T}$ is described by Eq. $\eqref{eq:topo-construction}$,
+    using the basis $\mathcal{B}$ in Eq. $\eqref{eq:topo-basis}$.
+
+$$
+\begin{equation} \label{eq:topo-basis}
+    \mathcal{B} := \{ B(x;\epsilon): x \in \widehat{\mathbb{C}}, \epsilon > 0 \}
+\end{equation}
+$$
 
 $$
 \begin{equation} \label{eq:topo-construction}
-    \mathcal{T} := \{ B(x;\epsilon): x \in \widehat{\mathbb{C}}, \epsilon > 0 \}
+    % sets of open balls instead of union of single balls
+    \mathcal{T} := \{ \bigcup \mathcal{U} : \mathcal{U} \subseteq \mathcal{B}  \}
 \end{equation}
 $$
 
@@ -153,8 +165,19 @@ By the construction of $\mathcal{T}$,
 Assume for a contradiction that property $\eqref{prop:intersection-W}$ is not true for $\mathcal{T}$.
 This means that there is no such basis for which the interaction of any two non-disjoint open balls contains a second open ball.
 By the construction of $\mathcal{T}$ it is not only possible but defined that each element is contained in an open ball of size one.
-That is if we have two non-disjoint open balls $B$ and $V$ such that there intersection is not empty then by definition there must exist an open ball in their intersection,
+That is if we have two non-disjoint open balls $B$ and $V$ such that there intersection is non empty.
+Then there must exist an open ball in their intersection Eq. $\eqref{eq:radius-argument}$,
     a contradiction<d-footnote> This proof is remarkably fun to visualize. </d-footnote>.
+
+$$
+\begin{equation} \label{eq:radius-argument}
+\begin{split}
+    x \in B(a,r) &\cap B(b,s), \\
+    \epsilon < min(r - d(a,x), s - d(b,x)) &\implies B(x, \epsilon) \subset B(a,r) \cap B(b,s)
+\end{split}
+\end{equation}
+$$
+
 
 {%
     include theme-images.html
@@ -179,9 +202,6 @@ That is each open ball includes all those points within some distance from $x$.
 On a plane this presents as a circle where that distance acts as the radius.
 On $S^2$ that is the projection of plane in $\mathbb{R}^3$ as a sphere an open ball would be visualized as a circle.
 Seeing as $S^2$ is homeomorphic to $\widehat{\mathbb{C}}$ (see the construction in <d-cite key="conway"></d-cite>) it becomes tempting to believe open balls appear the same on $\widehat{\mathbb{C}}$ as $S^2$.
-Recall that $\infty$ is a point on $\widehat{\mathbb{C}}$ a point of infinite distance.
-Noticeably those points closest to the north-pole still have the property $d(N, z) = \infty$.
-This property is most clearly observed through a visualization of an open ball with a finite $\epsilon$ value.
 
 {%
     include theme-images.html
@@ -191,12 +211,11 @@ This property is most clearly observed through a visualization of an open ball w
     caption="Figure 2: Visualization of open set on Riemann sphere"
 %}
 
-Figure 2 gives an exaggerated concept of the effects of infinity at the north pole.
-Open balls constructed with a finite distance will always have a concavity surrounding the point infinity.
-The distance from zero will cascade along the south to north poles creating rings of equivalent distance from zero.
+Figure 2 illustrates the geometry around the north pole.
+Under stereographic projection finite complex numbers correlate to some number $z$ such that as $|z|$ increases it gets closer to $\infty$.
 This idea is shown by Figure 3,
     by visualizing all the elements at three different, constant, finite distances from zero shown by red rings.
-That is no finite point $z$ is ever closer to the point infinity than $d(z, \infty) = \infty$ <d-cite key="needham"></d-cite>.
+It is defined that a finite point $|z|$ gets closer to the north pole according to $d(z, \infty) = \frac{2}{\sqrt{1 + |z|^2}}$ <d-cite key="conway"></d-cite>.
 
 {%
     include theme-images.html
@@ -210,7 +229,6 @@ We can see three different open balls in Figure 3,
     all centered on the zero point or the south pole.
 In particular we have three open balls such that $B'' \subset B' \subset B$,
     where the distance value of each open ball is greater than the last.
-Thus it is possible to observe one of the axioms of topology $$\widehat{\mathbb{C}} \subset B(0; \infty) \in \mathcal{B} \subset \mathcal{B}$$ <d-cite key="conway"></d-cite>.
 This concept nicely leads into the observation of closed sets present in $\mathcal{T}$.
 The definition of a closed set I focus on here is that a set is closed _iff_ its compliment set is open <d-cite key="conway"></d-cite> <d-cite key="needham"></d-cite> <d-cite key="munkres"></d-cite>.
 Thus by the pictures above closed sets would encompass all those points not contained in the open balls (including the open balls boundaries).
@@ -219,15 +237,14 @@ As a final note I would assert that not all open and closed sets are as uniform 
     it is simply easier to demonstrate with smooth uniform sets.
 
 The second important topological examination needed for the article is that of compact sets.
-A set is compact if every open cover of it has a finite subcover <d-cite key="g&g"></d-cite> <d-cite key="conway"></d-cite>.
+A set is compact if all of its open covers possess a finite subcover <d-cite key="g&g"></d-cite> <d-cite key="conway"></d-cite>.
 Intuitively that is for ever family of open sets $$\{U_\alpha\}_{\alpha \in A}$$ the union of that family is the topological space $$\bigcup \{U_\alpha\}_{\alpha \in A} = X$$.
-Presented more formally in Eq. $\eqref{prop:compact-def}$ we see that intuitively a set is compact _iff_ any open cover of that set has only finitely many open sets <d-cite key="g&g"></d-cite>.
+Presented more formally in Eq. $\eqref{prop:compact-def}$ we see that intuitively a set is compact _iff_ that set is the union of finitely many open sets <d-cite key="g&g"></d-cite>.
 
 $$
 \begin{equation} \label{prop:compact-def}
 \begin{split}
-    (U := {U_\alpha}_{\alpha \in A}) &\land (\bigcup U_\alpha = X) \\
-    \text{X is compact } &\iff A \ne \infty
+    \text{X is compact} \implies X \subset \bigcup {U_1,\ldots, U_n}
 \end{split}
 \end{equation}
 $$
@@ -267,19 +284,17 @@ Recall the _Heine-Borel_ theorem.
 
 $$
 \begin{aligned} \label{theorem:h-b}
-    (X \subset \mathbb{R}^n) &\land (n \ge 1) \\
-    (\exists sup(X) < \infty) &\land (\exists inf(X) > -\infty) \\
+    S^2 = \{ x: x \in \mathbb{R}^3, ||x|| = 1 \}
 \end{aligned}
 $$
 
-In particular,
-    the _Heine-Borel_ dictates that the space must have a finite supremum and infimum.
-The unit sphere $S^2$ is bounded by this definition as it possess both a finite supremum and infimum in $\mathbb{R}^3$.
-It is also the case that $S^2 \subset \mathbb{R}^3$ by definition of $S^2$.
+The unit sphere $S^2$ is bounded by this definition,
+    defining $S^2$ as all those points exactly distance $1$ from the origin.
+It is also the case that $S^2 \subset \mathbb{R}^3$ by $\eqref{theorem:h-b}$.
 Therefore $S^2$ is compact by the _Heine-Borel_ theorem.
 Noticeably $\widehat{\mathbb{C}}$ is constructed via stereographic projection from $S^2$.
 As the definition of a homeomorphism is some bijection between two space <d-cite key="g&g"></d-cite>s,
-    $\widehat{\mathbb{C}}$ and $S^2$ are homeomorphic by definition.
+    $\widehat{\mathbb{C}}$ and $S^2$ are homeomorphic.
 It is also the case that homeomorphisms serve as topological equivalence relations between spaces <d-cite key="g&g"></d-cite>.
 Therefore if $S^2$ is compact and homeomorphic to $\widehat{\mathbb{C}}$ implies that $\widehat{\mathbb{C}}$ is compact<d-footnote> 
 I love this proof, however it does make me nervous due to its shortness </d-footnote>.
@@ -305,7 +320,7 @@ First it is said that a set is _recursive_ when its characteristic function is c
 Moving forward note that this article will use the term recursive when discussing sets,
     and computable when discussing functions.
 A sets characteristic function is the ownership defining function corresponding to the predicate $x \in A$.
-Formally for any set $A$ the characteristic function $c_A: \mathbb{N} \rightarrow A$ is that function which computes $x \in A$.
+Formally for any set $A$ the characteristic function $c_A: \mathbb{N} \rightarrow \{0,1\}$ is that function which computes predicate $x \in A$.
 Notably $c_A$ shown in Eq. $\eqref{fxn:c_A}$ is computable iff $x \in A$ is a _decidable_ predicate.
 
 $$
@@ -324,8 +339,14 @@ Via <d-cite key="cutland"></d-cite> all characteristic functions (recursive sets
     as the sets themselves must be denumerable.
 In particular,
     it is the case that in classical computability recursive sets are defined to be natural or natural adjacent <d-cite key="cutland"></d-cite>.
-Notably classical computability via <d-cite key="cutland"></d-cite> has no power over $\widehat{\mathbb{C}}$.
-This result implies that it is an impossibility to use classical recursion theory to investigate $\widehat{\mathbb{C}}$.
+Notably membership of arbitrary subsets of $\widehat{\mathbb{C}}$ is not a Type-1 predicate problem,
+    a problem ill-suited to classical recursion theory tools.
+Thus the one must rely on specification on effective openness and closedness,
+    which falls in the problem space of Type-2 recursion theory.
+Classical recursion theory (Type-1) concerns discrete spaces,
+    such as $\mathbb{N}$.
+To discuss a non-discrete space such as $\widehat{\mathbb{C}}$ one must specify a representation of its points.
+Type-2 computability provides such a representation through the use of _Baire_ space and effective approximation.
 
 ## Computable topologies
 Having deduced that classical computability does not have the power to examine the computability of $\widehat{\mathbb{C}}$ we turn to modern approaches.
@@ -363,6 +384,7 @@ I have selfishly stopped myself from searching the literature for such a set,
     as my intuition tells me that one exists.
 If such a set exists for $\mathbb{C}$ one could conceivably build a proof intuitively given a partial order is chosen.
 It is much more difficult to imagine a proof of $\widehat{\mathbb{C}}$ as a dense set would need to include $\infty$ as a limit point while still being denumerable.
+Something like $\mathbb{Q} + \mathbb{Q}i$ seems to work as a dense set of $\widehat{\mathbb{C}}$.
 
 # Future work
 I would love to dedicate a full length article to the proof of computability of $\widehat{\mathbb{C}}$ via TTE.
