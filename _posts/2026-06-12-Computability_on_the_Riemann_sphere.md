@@ -24,7 +24,7 @@ authors:
       affiliations:
         name: butte college
 
-bibliography: 2026-06-12-Computability_on_the_Riemannsphere.bib
+bibliography: 2026-06-12-Computability_on_the_Riemann_sphere.bib
 
 citation: true
 
@@ -210,7 +210,7 @@ We can see three different open balls in Figure 3,
     all centered on the zero point or the south pole.
 In particular we have three open balls such that $B'' \subset B' \subset B$,
     where the distance value of each open ball is greater than the last.
-Thus it is possible to observe one of the axioms of topology $$\widehat{\mathbb{C}} \subset B(0; \infty) \in \mathcal{B} \subset \mathcal{T}$$ <d-cite key="conway"></d-cite>.
+Thus it is possible to observe one of the axioms of topology $$\widehat{\mathbb{C}} \subset B(0; \infty) \in \mathcal{B} \subset \mathcal{B}$$ <d-cite key="conway"></d-cite>.
 This concept nicely leads into the observation of closed sets present in $\mathcal{T}$.
 The definition of a closed set I focus on here is that a set is closed _iff_ its compliment set is open <d-cite key="conway"></d-cite> <d-cite key="needham"></d-cite> <d-cite key="munkres"></d-cite>.
 Thus by the pictures above closed sets would encompass all those points not contained in the open balls (including the open balls boundaries).
