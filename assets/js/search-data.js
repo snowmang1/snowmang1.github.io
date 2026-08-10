@@ -59,7 +59,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/Computability_on_the_Riemannsphere/";
+            window.location.href = "/blog/2026/Computability_on_the_Riemann_sphere/";
           
         },
       },{id: "post-the-riemann-sphere",
