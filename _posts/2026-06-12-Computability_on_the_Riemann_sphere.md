@@ -38,6 +38,7 @@ toc:
   - name: Introduction
   - name: Topology of Riemann sphere
   - name: Computability
+  - name: Future work
   - name: References
   - name: Nomenclature
     # if a section has subsections, you can add them as follows:
@@ -51,346 +52,271 @@ toc:
 # Can be used for custom style elements
 ---
 # Introduction
-I examine the Riemann sphere in terms of its computability.
-In particular does there exist those regions of $\widehat{\mathbb{C}}$ that can be proven recursive and how?
-To this end I find myself examining how computability is defined on analytic structures.
-Which structures can be explored in terms of recursion theory,
-    and if they can be explored how?
-It is precisely these questions that I explore in the article.
-In the pursuit of the above queries an exploration of topology seemed enjoyable and necessary.
-Once the topology of $\widehat{\mathbb{C}}$ is described shallowly,
-    the article shifts to finding a suitable theory of recursion for a possible proof.
+placeholder
 
 # Topology of Riemann sphere
-Here I discuss the topology $\widehat{\mathbb{C}}$ defined by $$\mathbb{C}_\infty$$ and the chordal metric $d$ (stereographic projection) described in <d-cite key="drake"></d-cite>.
-That is the topology $\mathcal{T} := (\widehat{\mathbb{C}}, d)$.
-All topologies must adhere to the axiomatic definition of a topology <d-cite key="g&g"></d-cite>.
-For any set $X$, the topology $\mathcal{T}$ has the following properties:
+Here I will investigate the Riemann sphere $\widehat{\mathbb{C}}$.
+To this end I will use the chordal metric $d_{ch}$ defined as $d$ in <d-cite key="drake"></d-cite>,
+    and make great use of the complex plane $\mathbb{C}$.
+I will use the definition of the sphere and stereographic projection from a previous work <d-cite key="drake"></d-cite>.
 
-$
-\begin{equation} \label{axiom:topo-1}
-    X, \emptyset \in \mathcal{T}
-\end{equation}
-$
-
-$
-\begin{equation} \label{axiom:topo-2}
-    \mathcal{U} \subseteq \mathcal{T} \implies \bigcup \mathcal{U} \in \mathcal{T}
-\end{equation}
-$
-
-$
-\begin{equation} \label{axiom:topo-3}
-    n \in \mathbb{N},
-    \quad 
-    \mathcal{U}_1, \ldots, \mathcal{U}_n \in \mathcal{T}
-    \implies
-    \bigcap_{j=1}^n \mathcal{U}_j \in \mathcal{T}
-\end{equation}
-$
-
-A metric topology is defined such that every open set corresponds to an open ball.
-An open ball is defined by <d-cite key="conway"></d-cite> can be seen in Eq. $\eqref{eq:open-ball}$.
-
-$
-\begin{equation} \label{eq:open-ball}
-B(x; r) = \{y \in X: d(x,y) < r\}
-\end{equation}
-$
-
-In particular it is the set created when given some point $x$ all points $y$ are defined by the radius $r$.
-Those points $y$ are within the distance $r$ defined by the metric function $d$ of $x$.
-It is important to note that those points at exactly distance $r$ are excluded from the set.
-The topology investigated here is the metric topology where all open sets are defined by the open ball Eq. $\eqref{eq:open-ball}$.
-
-<div class="prop-block" markdown="1">
-**Proposition 1**.
-
-$\mathcal{T} := (\widehat{\mathbb{C}}, d)$ forms a metric topology over $\widehat{\mathbb{C}}$.
-</div>
-
-<div class="proof-block" markdown="1">
-**Proof.**
-
-Note the construction of $\mathcal{T}$ is described by Eq. $\eqref{eq:topo-construction}$,
-    using the basis $\mathcal{B}$ in Eq. $\eqref{eq:topo-basis}$.
-
-$$
-\begin{equation} \label{eq:topo-basis}
-    \mathcal{B} := \{ B(x;\epsilon): x \in \widehat{\mathbb{C}}, \epsilon > 0 \}
-\end{equation}
-$$
-
-$$
-\begin{equation} \label{eq:topo-construction}
-    % sets of open balls instead of union of single balls
-    \mathcal{T} := \{ \bigcup \mathcal{U} : \mathcal{U} \subseteq \mathcal{B}  \}
-\end{equation}
-$$
-
-If $\mathcal{T}$ is the topological set of all open balls in $(\widehat{\mathbb{C}}, d)$,
-    then there exists a basis $\mathcal{B}$ by which we can prove $\mathcal{T}$ is a topology.
-That is the family of open sets $\mathcal{B}$ has the following property.
-
-$$
-\begin{equation} \label{eq:basis-neighborhoods}
-\begin{split}
-    \mathcal{B} &\subset \mathcal{T} \\
-    (\forall B \in \mathcal{B})(x \in B) &\implies (\exists V: x \in V)
-\end{split}
-\end{equation}
-$$
-
-The set $\mathcal{T}$ is the set of all open balls,
-    thus for each $x \in \widehat{\mathbb{C}}$ we have that there exists $x \in B(x;r) \subset \mathcal{B}$.
-That is there exists an open ball centered on every element of the Riemann sphere.
-According to <d-cite key="g&g"></d-cite> any basis of a topology must have the following property.
-
-$$
-\begin{align}
-    \bigcup \mathcal{B} &\subset X \\
-    \label{prop:elem-in-B}
-    (x \in X) &\implies (\exists B(x;\epsilon) \subset \mathcal{B}: \epsilon > 0) \\
-    \label{prop:intersection-W}
-    (U,V \in \mathcal{B}) \land (x \in (U \cap V)) &\implies (\exists W \in \mathcal{B}) \land (x \in W \subset (U \cap V))
-\end{align}
-$$
-
-Thus proving that the basis $\mathcal{B}$ described for $\mathcal{T}$ has the qualities described above.
-By the construction of $\mathcal{T}$ we know that all elements $x \in \widehat{\mathbb{C}}$ have an open ball centered on them,
-    satisfying property $\eqref{prop:elem-in-B}$.
-That is there exists a family open sets $\mathcal{B} \subset \mathcal{T}$ for which all elements of the space are contained in those open sets.
-By the construction of $\mathcal{T}$,
-    all open balls defined by the metric space $(\widehat{\mathbb{C}}, d)$.
-Assume for a contradiction that property $\eqref{prop:intersection-W}$ is not true for $\mathcal{T}$.
-This means that there is no such basis for which the interaction of any two non-disjoint open balls contains a second open ball.
-By the construction of $\mathcal{T}$ it is not only possible but defined that each element is contained in an open ball of size one.
-That is if we have two non-disjoint open balls $B$ and $V$ such that there intersection is non empty.
-Then there must exist an open ball in their intersection Eq. $\eqref{eq:radius-argument}$,
-    a contradiction<d-footnote> This proof is remarkably fun to visualize. </d-footnote>.
-
-$$
-\begin{equation} \label{eq:radius-argument}
-\begin{split}
-    x \in B(a,r) &\cap B(b,s), \\
-    \epsilon < min(r - d(a,x), s - d(b,x)) &\implies B(x, \epsilon) \subset B(a,r) \cap B(b,s)
-\end{split}
-\end{equation}
-$$
-
-
-{%
-    include theme-images.html
-    light="/assets/img/tikz/computable_riemann_sphere/intersecting_open_ball_light.svg"
-    dark="/assets/img/tikz/computable_riemann_sphere/intersecting_open_ball_dark.svg"
-    alt="visualization of proof"
-    caption="Figure 1: Intersection property of topological basis sets"
-%}
-</div>
-
-Now that I have crafted a somewhat convincing argument for the existence of a topology on $(\widehat{\mathbb{C}}, d)$ let us analyze it.
-
-A metric topology such as $\mathcal{T}$ is defined by its open sets,
-    recall the basis is a family of open sets.
-Open sets are defined in a metric topology as those sets centered on an element $x$.
-In particular, those sets for which every element of the sets is within some distance $\epsilon$ from $x$ using the metric function $d$.
-Recall $d$ is defined in <d-cite key="drake"></d-cite> as $$d(z, z') = [(x_1 - x'_1)^2+(x_2-x'_2)^2+(x_3-x'_3)^2]^\frac{1}{2}$$,
-    the euclidean distance between two points in $\mathbb{R}^3$.
-Thus for any point $z \in \widehat{\mathbb{C}}$,
-    it is trivial to see that the open set $B(z; \epsilon)$ is defined as $\{x: d(z,x) < \epsilon\} $<d-cite key="conway"></d-cite>.
-That is each open ball includes all those points within some distance from $x$.
-On a plane this presents as a circle where that distance acts as the radius.
-On $S^2$ that is the projection of plane in $\mathbb{R}^3$ as a sphere an open ball would be visualized as a circle.
-Seeing as $S^2$ is homeomorphic to $\widehat{\mathbb{C}}$ (see the construction in <d-cite key="conway"></d-cite>) it becomes tempting to believe open balls appear the same on $\widehat{\mathbb{C}}$ as $S^2$.
+## Metric topology
+The metric topology is that topology which makes use of a metric space in order to form a basis set.
+For any metric space $(X,d)$ open and closed balls are defined by Eq. $\eqref{def:open-closed-balls}$ and Figure 1, respectively <d-cite key="conway"></d-cite>.
 
 {%
     include theme-images.html
     light="/assets/img/tikz/computable_riemann_sphere/riemann_sphere_line_projection_light.svg"
     dark="/assets/img/tikz/computable_riemann_sphere/riemann_sphere_line_projection_dark.svg"
     alt="visualization of open ball on Riemann sphere"
-    caption="Figure 2: Visualization of open set on Riemann sphere"
+    caption="Figure 1: Visualization of open set on Riemann sphere"
 %}
-
-Figure 2 illustrates the geometry around the north pole.
-Under stereographic projection finite complex numbers correlate to some number $z$ such that as $|z|$ increases it gets closer to $\infty$.
-This idea is shown by Figure 3,
-    by visualizing all the elements at three different, constant, finite distances from zero shown by red rings.
-It is defined that a finite point $|z|$ gets closer to the north pole according to $d(z, \infty) = \frac{2}{\sqrt{1 + |z|^2}}$ <d-cite key="conway"></d-cite>.
-
-{%
-    include theme-images.html
-    light="/assets/img/tikz/computable_riemann_sphere/infinity_rings_light.svg"
-    dark="/assets/img/tikz/computable_riemann_sphere/infinity_rings_dark.svg"
-    alt="visualization of equivalently distant elements from zero"
-    caption="Figure 3: visualization of equivalently distant elements from zero"
-%}
-
-We can see three different open balls in Figure 3,
-    all centered on the zero point or the south pole.
-In particular we have three open balls such that $B'' \subset B' \subset B$,
-    where the distance value of each open ball is greater than the last.
-This concept nicely leads into the observation of closed sets present in $\mathcal{T}$.
-The definition of a closed set I focus on here is that a set is closed _iff_ its compliment set is open <d-cite key="conway"></d-cite> <d-cite key="needham"></d-cite> <d-cite key="munkres"></d-cite>.
-Thus by the pictures above closed sets would encompass all those points not contained in the open balls (including the open balls boundaries).
-In particular, it is usual to call these sets closed balls $$\bar{B}(z; \epsilon) = \{x: (d(z, x) \le \epsilon) \land (\epsilon > 0)\}$$.
-As a final note I would assert that not all open and closed sets are as uniform as the above visualizations make them seem,
-    it is simply easier to demonstrate with smooth uniform sets.
-
-The second important topological examination needed for the article is that of compact sets.
-A set is compact if all of its open covers possess a finite subcover <d-cite key="g&g"></d-cite> <d-cite key="conway"></d-cite>.
-Intuitively that is for ever family of open sets $$\{U_\alpha\}_{\alpha \in A}$$ the union of that family is the topological space $$\bigcup \{U_\alpha\}_{\alpha \in A} = X$$.
-Presented more formally in Eq. $\eqref{prop:compact-def}$ we see that intuitively a set is compact _iff_ that set is the union of finitely many open sets <d-cite key="g&g"></d-cite>.
 
 $$
-\begin{equation} \label{prop:compact-def}
+\begin{equation} \label{def:open-closed-balls}
 \begin{split}
-    \text{X is compact} \implies X \subset \bigcup {U_1,\ldots, U_n}
+    B(x;r) &:= \{y \in X: d(x,y) < r\} \quad \text{open balls} \\
+    \bar{B}(x;r) &:= \{y \in X: d(x,y) \le r\} \quad \text{closed balls}
 \end{split}
 \end{equation}
 $$
 
-It is trivial to see that $\mathbb{C}$ is not compact by intuiting this geometrically.
-Visualizing $\mathbb{C}$ as a plane it is impossible to see the edge of such a plane.
-In particular,
-    it is impossible intuitively for a finite amount of open sets to cover such a plane.
-Noticeably this intuition provides us with the inference that _if a set is not self contained then its probably not compact_.
-Formally this statement is thus: a set is compact _iff_ it is closed and bounded <d-cite key="conway"></d-cite>.
-In particular,
-    a closed set contains its limit points and a bounded set has some bounding.
-It may now be asked if indeed the Riemann sphere is compact.
-Noticeably $\widehat{\mathbb{C}}$ is that extension of $\mathbb{C}$ containing the point $\infty$.
-In the intuition of $\mathbb{C}$ it was simple to use the geometry to imagine if some amount of sets could cover the plane.
-Geometrically $\widehat{\mathbb{C}}$ is not presented as a plane,
-    it is presented via that homeomorphism of $S^2$ <d-cite key="conway"></d-cite>.
-The Riemann sphere is projected into $\mathbb{R}^3$ via stereographic projection,
-    though it is essentially still a plane with a single point of convergence.
-This can be intuited by the hollowness of the Riemann sphere,
-    that is only the points on the surface of the sphere are technically contained in $\widehat{\mathbb{C}}$.
-All of this is to say the geometric version of this proof would be bothersome.
-Luckily the _Heine-Borel_ theorem states: A subset $K$ of $\mathbb{R}^n, (n ge 1)$ is compact _iff_ $K$ is closed and bounded.
-Unfortunately $\widehat{\mathbb{C}}$ is an extension of $\mathbb{C}$ which is not contained by $\mathbb{R}$,
-    this is not true of $S^2$.
+The metric topology of a metric space is built atop the basis set of that metric space.
+In particular, for any family of open sets $\mathcal{B}$ of metric space $(X,d)$,
+    $\mathcal{B}$ is a basis set if every open subset of $(X,d)$ is a union of sets in $\mathcal{B}$ <d-cite key="g&g"></d-cite>.
+A topology has three axioms which define both how to build them and how they behave, see Eq. $\eqref{axiom:topo-1}$,
+    $\eqref{axiom:topo-2}$,
+    $\eqref{axiom:topo-3}$,
+    see <d-cite key="g&g"></d-cite>.
+
+$$
+\begin{equation} \label{axiom:topo-1}
+    X, \emptyset \in \mathcal{T} \\
+\end{equation}
+$$
+
+$$
+\begin{equation} \label{axiom:topo-2}
+    \mathcal{U} \subseteq \mathcal{T} \implies \bigcup \mathcal{U} \in T
+\end{equation}
+$$
+
+$$
+\begin{equation} \label{axiom:topo-3}
+    \mathcal{U}_1,  \ldots, \mathcal{U}_n \in \mathcal{T} \implies \bigcap_{j=1}^n \mathcal{U}_j \in \mathcal{T}
+\end{equation}
+$$
 
 <div class="prop-block" markdown="1">
-**Proposition 2**.
+**Proposition 1**.
 
-The Riemann sphere $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
+There exists a topological basis $\mathcal{B}$ for metric topology $\mathcal{T}$ formed from the metric space $(\widehat{\mathbb{C}}, d_{ch})$
 </div>
 
 <div class="proof-block" markdown="1">
-**Proof**
-
-Recall the _Heine-Borel_ theorem.
+Recall that $(\widehat{\mathbb{C}}, d_{ch})$ is a metric space <d-cite key="drake"></d-cite>.
+Define a set $\mathcal{B}$ by Eq. $\eqref{def:basis}, \eqref{def:basis-elem}$,
+    that is a set of open balls such that all elements of the space are included.
 
 $$
-\begin{aligned} \label{theorem:h-b}
-    S^2 = \{ x: x \in \mathbb{R}^3, ||x|| = 1 \}
-\end{aligned}
+\begin{equation} \label{def:basis}
+    \mathcal{B} := {B : B \subseteq (\widehat{\mathbb{C}}, d_{ch}), B \text{ is open}}
+\end{equation}
 $$
 
-The unit sphere $S^2$ is bounded by this definition,
-    defining $S^2$ as all those points exactly distance $1$ from the origin.
-It is also the case that $S^2 \subset \mathbb{R}^3$ by $\eqref{theorem:h-b}$.
-Therefore $S^2$ is compact by the _Heine-Borel_ theorem.
-Noticeably $\widehat{\mathbb{C}}$ is constructed via stereographic projection from $S^2$.
-As the definition of a homeomorphism is some bijection between two space <d-cite key="g&g"></d-cite>s,
-    $\widehat{\mathbb{C}}$ and $S^2$ are homeomorphic.
-It is also the case that homeomorphisms serve as topological equivalence relations between spaces <d-cite key="g&g"></d-cite>.
-Therefore if $S^2$ is compact and homeomorphic to $\widehat{\mathbb{C}}$ implies that $\widehat{\mathbb{C}}$ is compact<d-footnote> 
-I love this proof, however it does make me nervous due to its shortness </d-footnote>.
+$$
+\begin{equation} \label{def:basis-elem}
+    x \in \widehat{\mathbb{C}} \implies (\exists B \in \mathcal{B}) \land (x \in B)
+\end{equation}
+$$
+
+Notably $\widehat{\mathbb{C}}$ is a complete space <d-cite key="conway"></d-cite>,
+    meaning there exist no gaps in $\widehat{\mathbb{C}}$.
+
+<div class="prop-block" markdown="1">
+**Lemma 1**
+
+$\mathcal{B}$ is a topological basis in the metric space $(\widehat{\mathbb{C}}, d_{ch})$
+</div>
+<div class="proof-block" markdown="1">
+Since $(\widehat{\mathbb{C}}, d_{ch})$ is a metric space we have access to the triangle inequality.
+A basis is defined by the intersection theorem shown in Figure 2.
+This theorem has two main parts explained by Eq. $\eqref{def:basis-1}, \eqref{def:basis-2}$ <d-cite key="g&g"></d-cite> <d-cite key="munkres"></d-cite>.
+
+$$
+\begin{equation} \label{def:basis-1}
+    \forall x \in X \implies (\exists V) \land (x \in V \in \mathcal{B})
+\end{equation}
+$$
+
+$$
+\begin{equation} \label{def:basis-2}
+    (U,V \in \mathcal{B}) \land (x \in U \cap V) \implies (\exists W \in \mathcal{B}) \land (x \in W \subset U \in V)
+\end{equation}
+$$
+
+{%
+    include theme-images.html
+    light="/assets/img/tikz/computable_riemann_sphere/intersecting_open_ball_light.svg"
+    dark="/assets/img/tikz/computable_riemann_sphere/intersecting_open_ball_dark.svg"
+    alt="visualization of proof"
+    caption="Figure 2: Intersection property of topological basis sets"
+%}
+
+The way I have defined our set $\mathcal{B}$ satisfies Eq. $\eqref{def:basis-1}$.
+To satisfy Eq. $\eqref{def:basis-2}$ one needs only apply the triangle inequality
+    <d-footnote> which seems to always by the answer in topology for some reason? </d-footnote>.
+That is if there exists two open balls $U$ and $V$ with radii $\epsilon$ and $\gamma$ respectively,
+    such that the outer ring of $U$ is within distance $\gamma$ or $V$, etc.
+It is appropriate to assume that there exists some point $x$ that is within $\gamma$ of $V$ and $\epsilon$ of $U$,
+    $x \in V \cap U$.
+Lets assume that the distance from the center of $V$ ($V_c$) to the nearest point of $U$ is $\gamma_1$ at distance $\gamma - \epsilon$ from $V_c$,
+    let us call the equivalent point on for $U$ $\epsilon_1$.
+It is now possible to approximate the distance $d_{ch}(\gamma_1, \epsilon_1) > 0$ as that radius of $V \cap U$.
+Therefore there must exist a point $x \in V \cap U$ such that $d_{ch}(\gamma_1, \epsilon_1) \le d_{ch}(\gamma_1, x) + d_{ch}(x, \epsilon_1)$.
+We call this point $x$ the center of the open set $W$ with radius $min(d_{ch}(\gamma_1, x), d_{ch}(x, \epsilon_1))$,
+    Satisfying Eq. $\eqref{def:basis-2}$.
 </div>
 
-# Computability
-A computable process is usually defined as that mechanical logic which accomplishes some decidable predicate in finitely many steps <d-cite key="cutland"></d-cite>.
+Using Lemma 1 we know that $\mathcal{B}$ forms a basis on the metric space $(\widehat{\mathbb{C}}, d_{ch})$.
+Thus the topology $\mathcal{T}$ exists as the arbitrary union of basis sets <d-cite key="g&g"></d-cite>.
+Topology $\mathcal{T}$ can be defined as Eq. $\eqref{def:T}$ using basis $\mathcal{B}$.
+
+$$
+\begin{equation} \label{def:T}
+    \mathcal{U} \subseteq \mathcal{B} \implies \bigcup \mathcal{U} \in \mathcal{T}
+\end{equation}
+$$
+</div>
+
+## Compactness of $$\widehat{\mathbb{C}}$$
+A space is said to be compact if every open cover of that space has a finite subcover <d-cite key="g&g"></d-cite> <d-cite key="conway"></d-cite> <d-cite key="munkres"></d-cite>.
+As this can be difficult to prove in its current phrasing,
+    here I will use the _Heine-Borel_ theorem <d-cite key="conway"></d-cite>.
+In topology equivalence between spaces is defined as those spaces connected via _homeomorphisms_ <d-cite key="g&g"></d-cite>.
+That is if there exists a homeomorphism $f: X \rightarrow Y$ the spaces $X$ and $Y$ are said to be topologically equivalent.
+
+<div class="prop-block" markdown="1">
+** Proposition 2 **
+
+$\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
+</div>
+<div class="proof-block" markdown="1">
+
+First let us prove that $\mathbb{C}$ is not compact.
+<div class="prop-block" markdown="1">
+** Lemma 1 **
+
+$\mathbb{C}$ is not compact.
+</div>
+<div class="proof-block" markdown="1">
+Any compact set must be closed and bounded <d-cite key="g&g"></d-cite>.
+$\mathbb{C}$ is unbounded,
+    therefore $\mathbb{C}$ is not compact.
+</div>
+
+<div class="prop-block" markdown="1">
+** Lemma 2 **
+
+There exists a homeomorphism $f: \widehat{\mathbb{C}} \rightarrow S^2$ such that $\widehat{\mathbb{C}}$ and $S^2$ are homeomorphic.
+</div>
+<div class="proof-block" markdown="1">
+Recall that in <d-cite key="drake"></d-cite> _stereographic projection_ is defined as a function mapping $$\mathbb{C}_\infty$$ to $S^2$ using the chordal metric.
+Here the symbolic representation of $\mathbb{C}_\infty$ (Conway's notation) has been changed to $\widehat{\mathbb{C}}$ (common notation) due to personal preference.
+It is clear that by our definition of homeomorphic above that stereographic projection is some homeomorphism $f: \widehat{\mathbb{C}} \rightarrow S^2$.
+</div>
+
+It can now understood by Lemma 2 that if $S^2$ is shown to be compact then so is $\widehat{\mathbb{C}}$ via the laws of topology <d-cite key="g&g"></d-cite>.
+Via the Hiene-Borel Eq. $\eqref{def:HB}$ it is possible to show that $S^2$ is a compact space.
+
+$$
+\begin{equation} \label{def:HB}
+    K \subset \mathbb{R}^n, (n \ge 1) \text{ is compact } \iff K \text{ is closed and bounded }
+\end{equation}
+$$
+
+It is trivial to see that $S^2$ is bounded from its construction, see Eq. $\eqref{def:S2}$
+
+$$
+\begin{equation} \label{def:S2}
+    S^2 := \{ x : (x \in \mathbb{R}^3) \land (\|x\| = 1) \}
+\end{equation}
+$$
+
+Though the closedness of $S^2$ is also somewhat obvious from its definition it is worth examining.
+By definition the compliment of a closed set must be an open set <d-cite key="g&g"></d-cite>.
 In particular,
-    the idea of computability is heavily dependant on the logic in use.
-Let the definition of decidability be adopted from <d-cite key="cutland"></d-cite>,
-    as a full treatment is beyond the scope of this article.
-Here I will use the idea of Turing-computability,
-    though my understanding of such mechanical logic is more closely tied to the Lambda calculus.
-In particular this means that here a computable function utilizes the Turing machine as a mechanical logic.
-<!-- Via the Church-Turing thesis Turing machines and the Lambda calculus are equivalently powerful, -->
-<!--     thus an example in either infers the equivalent concept the in the other. -->
-We first examine the use of classical computability applied to the problem,
-    then examine some more modern methodology.
+    $S^2$ is closed if and only if $\mathbb{R}^3 \setminus S^2$ is open.
+It becomes clearer from construction that the compliment Eq. $\eqref{eq:S2-comp}$ is union of open sets though it may be worth further examination.
+
+$$
+\begin{equation} \label{eq:S2-comp}
+    \Omega = \mathbb{R}^3 \setminus S^2 := \{ x : (x \in \mathbb{R}^3) \land ((\|x\| > 1) \lor (\|x\| < 1)) \}
+\end{equation}
+$$
+
+$$
+\begin{equation} \label{eq:S2-comp2}
+    \Omega = \{ x : x \in \mathbb{R}^3, \|x\| < 1 \} \cup \{ x : x \in \mathbb{R}^3, \|x\| > 1 \}
+\end{equation}
+$$
+
+The left hand side of the union in Eq. $\eqref{eq:S2-comp2}$ is a trivial open set,
+    however the right hand side is not so obvious.
+Recall that $S^2$ is a bounded sphere,
+    thus the right hand side of the union represents all points in $\mathbb{R}^3$ that are outside the sphere while the left hand side is all points inside.
+In particular given that all those points in $S^2$ have exactly distance $1$ from the origin it is conceivable that an open ball centered distance $2$ from the origin could be formed with radius $1$.
+By this approach one can create an infinite number of open balls such that the union of which will be the right hand side of our union from Eq. $\eqref{eq:S2-comp2}$.
+Notably the union of two open sets is itself an open set <d-cite key="g&g"></d-cite>,
+    therefore $S^2$ is shown to be a closed set.
+Since $S^2$ adheres to those requirements of the Heine-Borel theorem,
+    it is has been proved that $S^2$ is compact.
+Since $S^2$ is compact then by Lemma 2 $\widehat{\mathbb{C}}$ is compact.
+By Lemma 1 it is known that $\mathbb{C}$ is not compact,
+    therefore it has been proved that $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
+</div>
+
+## Dense subsequence
+It is worth exploring a specific dense subset of $(\widehat{\mathbb{C}}, d_{ch})$ as it will be of importance.
+Let us define the set $\Omega$ as those points rational points of $\mathbb{C}$ that have been mapped to $S^2$ via stereographic projection.
+In particular it can be seen by Eq. $\eqref{def:omega}$ that $\Omega \subset \widehat{\mathbb{C}}$,
+    as the complex numbers are isomorphic to $\mathbb{R}^2$ not $\mathbb{Q}^2$.
+
+$$
+\begin{equation} \label{def:omega}
+\begin{split}
+    A := \{ z_1 + iz_2 :  z_1, z_2 \in \mathbb{Q} \} \cup \{ \infty \} \\
+    \Omega := \{ Z : Z \in (A \mapsto S^2) \}
+\end{split}
+\end{equation}
+$$
+
+<div class="prop-block" markdown="1">
+** Proposition 3 **
+
+$\Omega$ is dense in $\widehat{\mathbb{C}}$.
+</div>
+<div class="proof-block" markdown="1">
+A dense subset is defined as that subset $U$ of a space $X$ for which the closure of the subset $\bar{U}$ is the space Eq. $\eqref{def:dense-subset}$.
+
+$$
+\begin{equation} \label{def:dense-subset}
+    U \text{ dense in } X \implies \bar{U} = X
+\end{equation}
+$$
+
+The closure of the rational numbers is the real numbers $\bar{\mathbb{Q}} = \mathbb{R}$ implies that $\bar{\mathbb{Q} + i\mathbb{Q}} = \mathbb{R} + i\mathbb{R}$.
+Therefore as $A \mapsto S^2$ is an homeomorphism via Lemma 2 of theorem 2,
+    it has been shown that $\Omega$ is dense in $\widehat{\mathbb{C}}$.
+</div>
+
+<!-- TODO: State what “computable region” will mean next—for example, computably open subsets as effectively enumerable unions of rational chordal balls. -->
+# Computability
 
 ## Classical approach
-To examine the computability of any region of $\widehat{\mathbb{C}}$ it is imperative to understand what it means for a set to be _computable_.
-First it is said that a set is _recursive_ when its characteristic function is computable <d-cite key="cutland"></d-cite>.
-Moving forward note that this article will use the term recursive when discussing sets,
-    and computable when discussing functions.
-A sets characteristic function is the ownership defining function corresponding to the predicate $x \in A$.
-Formally for any set $A$ the characteristic function $c_A: \mathbb{N} \rightarrow \{0,1\}$ is that function which computes predicate $x \in A$.
-Notably $c_A$ shown in Eq. $\eqref{fxn:c_A}$ is computable iff $x \in A$ is a _decidable_ predicate.
 
-$$
-\begin{equation} \label{fxn:c_A}
-c_A =
-\begin{cases}
-    1 \quad \text{if } x \in A \\
-    0 \quad \text{if } x \notin A \\
-\end{cases}
-\end{equation}
-$$
-
-It is clear that a set is recursive only when its characteristic function is computable,
-    thus possessing a decidable predicate $x \in A$.
-Via <d-cite key="cutland"></d-cite> all characteristic functions (recursive sets) are defined with denumerable domains (domains mappable to $\mathbb{N}$),
-    as the sets themselves must be denumerable.
-In particular,
-    it is the case that in classical computability recursive sets are defined to be natural or natural adjacent <d-cite key="cutland"></d-cite>.
-Notably membership of arbitrary subsets of $\widehat{\mathbb{C}}$ is not a Type-1 predicate problem,
-    a problem ill-suited to classical recursion theory tools.
-Thus the one must rely on specification on effective openness and closedness,
-    which falls in the problem space of Type-2 recursion theory.
-Classical recursion theory (Type-1) concerns discrete spaces,
-    such as $\mathbb{N}$.
-To discuss a non-discrete space such as $\widehat{\mathbb{C}}$ one must specify a representation of its points.
-Type-2 computability provides such a representation through the use of _Baire_ space and effective approximation.
-
-## Computable topologies
-Having deduced that classical computability does not have the power to examine the computability of $\widehat{\mathbb{C}}$ we turn to modern approaches.
-The space of computability I investigate here is that of _metric spaces_ under $\mathbb{R}^n$.
-There exists a literature for computability on metric spaces belonging to $\mathbb{R}^n$ <d-cite key="frauendiener_klein"></d-cite>
-    <d-cite key="brattka_weihrauch"></d-cite> <d-cite key="brattka_presser"></d-cite> <d-cite key="brattka"></d-cite>
-    <d-cite key="weihrauch_book"></d-cite> <d-cite key="weihrauch_article"></d-cite>
-    <d-cite key="weihrauch_comp"></d-cite>.
-The literature describes the "classical approach" above as _type one_ theory of computability.
-As discussed the type one theory is ineffective on spaces on the order of $\mathbb{R}^n$ where $n \ge 1$.
-The literature then converges on <d-cite key="weihrauch_comp"></d-cite> <d-cite key="weihrauch_book"></d-cite>
-    which describes the _type two_ theory of computability (TTE) which works in spaces on the order of $\mathbb{R}^n$.
-The TTE has only appeared so far in writings stemming from <d-cite key="weihrauch_book"></d-cite> in my readings.
-There exist previous sources of computability on broader spaces than $\mathbb{N}$ though none as general as TTE.
-Notably TTE claims power enough to prove $\mathbb{R}$ a computable space <d-cite key="weihrauch_article"></d-cite>.
-For the scope of $\widehat{\mathbb{C}}$ TTE provides insight into computability of metric spaces.
-Such that TTE describes a theory of computability tied to specific topologies known as _Baire spaces_ <d-cite key="weihrauch_book"></d-cite>.
-TTE describes a computable metric space as the four tuple $\bar{M}$ described in Eq. $\eqref{eq:tte-m}$.
-Dictating that the cardinality of $M$ be at most that of a _Baire space_, $card(M) \le card(\mathbb{B})$.
-
-$$
-\begin{equation} \label{eq:tte-m}
-\bar{M} := (M, d, A, \alpha)
-\end{equation}
-$$
-
-1. $(M,d)$ is a metric space
-2. $A \subset M$ is dense in $M$
-3. $\alpha : \mathbb{N} \rightarrow A$ is a total numbering of $A$
-4. $D_{<} := \{ \langle i, j, k \rangle \mid d(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k) \}$ is recursively enumerable
-
-Intuitively if $\mathbb{R}$ is computable via TTE then so should be $\mathbb{C}$.
-The key to a proof seems to be finding a dense, denumerable subset of $\mathbb{C}$.
-I have selfishly stopped myself from searching the literature for such a set,
-    as my intuition tells me that one exists.
-If such a set exists for $\mathbb{C}$ one could conceivably build a proof intuitively given a partial order is chosen.
-It is much more difficult to imagine a proof of $\widehat{\mathbb{C}}$ as a dense set would need to include $\infty$ as a limit point while still being denumerable.
-Something like $\mathbb{Q} + \mathbb{Q}i$ seems to work as a dense set of $\widehat{\mathbb{C}}$.
-
+<!-- TODO: Put genuine extensions, such as effective compactness or hyperspace representations, in a short future-work paragraph. -->
 # Future work
-I would love to dedicate a full length article to the proof of computability of $\widehat{\mathbb{C}}$ via TTE.
-There is a fair amount of work in the area of topological computability by Brattka and Weihrauch that I intend to consume.
-The field itself is very interesting especially paired with Conway's texts on complex analysis.
-Alas my number theory, topology, and analysis are all just a bit too under developed to move further at this time.
 
 # Nomenclature
 1. $\emptyset$: Symbol for the empty set $$\{\}$$.
