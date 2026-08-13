@@ -120,7 +120,7 @@ Define a set $\mathcal{B}$ by Eq. $\eqref{def:basis}, \eqref{def:basis-elem}$,
 
 $$
 \begin{equation} \label{def:basis}
-    \mathcal{B} := {B : B \subseteq (\widehat{\mathbb{C}}, d_{ch}), B \text{ is open}}
+    \mathcal{B} := \{ B_{d_{ch}}(x, r) : x \in \widehat{\mathbb{C}}, r > 0 \}
 \end{equation}
 $$
 
@@ -184,7 +184,7 @@ Topology $\mathcal{T}$ can be defined as Eq. $\eqref{def:T}$ using basis $\mathc
 
 $$
 \begin{equation} \label{def:T}
-    \mathcal{U} \subseteq \mathcal{B} \implies \bigcup \mathcal{U} \in \mathcal{T}
+    \mathcal{T} := \{ \bigcup \mathcal{U} : \mathcal{U} \subseteq \mathcal{B} \}
 \end{equation}
 $$
 </div>
@@ -276,6 +276,7 @@ By Lemma 1 it is known that $\mathbb{C}$ is not compact,
     therefore it has been proved that $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
 </div>
 
+<!-- WARN: it may be the case that I am conflating C-hat here -->
 ## Dense subsequence
 It is worth exploring a specific dense subset of $(\widehat{\mathbb{C}}, d_{ch})$ as it will be of importance.
 Let us define the set $\Omega$ as those points rational points of $\mathbb{C}$ that have been mapped to $S^2$ via stereographic projection.
@@ -294,7 +295,7 @@ $$
 <div class="prop-block" markdown="1">
 ** Proposition 3 **
 
-$\Omega$ is dense in $\widehat{\mathbb{C}}$.
+$(\Omega, d_{ch})$ is dense in $(\widehat{\mathbb{C}}, d_{ch})$.
 </div>
 <div class="proof-block" markdown="1">
 A dense subset is defined as that subset $U$ of a space $X$ for which the closure of the subset $\bar{U}$ is the space Eq. $\eqref{def:dense-subset}$.
@@ -307,16 +308,151 @@ $$
 
 The closure of the rational numbers is the real numbers $\bar{\mathbb{Q}} = \mathbb{R}$ implies that $\bar{\mathbb{Q} + i\mathbb{Q}} = \mathbb{R} + i\mathbb{R}$.
 Therefore as $A \mapsto S^2$ is an homeomorphism via Lemma 2 of theorem 2,
-    it has been shown that $\Omega$ is dense in $\widehat{\mathbb{C}}$.
+    it has been shown that $(\Omega, d_{ch})$ is dense in $(\widehat{\mathbb{C}}, d_{ch})$.
 </div>
 
-<!-- TODO: State what “computable region” will mean next—for example, computably open subsets as effectively enumerable unions of rational chordal balls. -->
 # Computability
+A computable process can be defined as that mechanical logic which accomplishes a decidable predicate in finitely many steps <d-cite key="cutland"></d-cite>.
+In particular,
+    the idea of computability is dependant on the logic in use.
+Let the definition of decidability be adopted from <d-cite key="cutland"></d-cite>,
+    as a full treatment is beyond the scope of this article.
+Here I will use the idea of Turing-computability,
+    though my understanding of such mechanical logic is more closely tied to the Lambda calculus.
+In particular this means that here a computable function utilizes the Turing machine as a mechanical logic.
+We first examine the use of classical computability applied to the problem,
+    then examine some more modern methodology.
+For the remainder of this article is important to have some concrete definition of a _region_,
+    to this end see Eq. $\eqref{def:region}$ taken from <d-cite key="conway"></d-cite>.
+
+$$
+\begin{equation} \label{def:region}
+    X \subset \mathbb{R}^2 \text{ is a region} \iff X \text{ is open and connected }
+\end{equation}
+$$
+
+It is understood that $\mathbb{R}^2$ is isomorphic to $\mathbb{C} \cup \{ \infty \}$,
+    therefore a region in our sense will be that open connected subset of $\widehat{\mathbb{C}}$.
 
 ## Classical approach
+To examine the computability of any region of $\widehat{\mathbb{C}}$ it is imperative to understand what it means for a set to be _computable_ or _recursive_.
+Formally we say that a set is recursive when its characteristic function is computable <d-cite key="cutland"></d-cite>.
+Moving forward note that this article will use the term recursive when discussing sets,
+    and computable when discussing functions.
+A sets characteristic function is the ownership defining function corresponding to the predicate $x \in A$.
+Formally for any set $A$ the characteristic function $c_A: \mathbb{N} \rightarrow \{0,1\}$ is that function which computes predicate $x \in A$.
+Notably $c_A$ shown in Eq. $\eqref{fxn:c_A}$ is computable iff $x \in A$ is a _decidable_ predicate.
+
+$$
+\begin{equation} \label{fxn:c_A}
+c_A =
+\begin{cases}
+    1 \quad \text{if } x \in A \\
+    0 \quad \text{if } x \notin A \\
+\end{cases}
+\end{equation}
+$$
+
+It is clear that a set is recursive only when its characteristic function is computable,
+    thus possessing a decidable predicate $x \in A$.
+Via <d-cite key="cutland"></d-cite> all characteristic functions (defining recursive sets) are defined with denumerable domains,
+    as the recursive sets themselves must be denumerable.
+In particular,
+    it is the case that in classical computability recursive sets are defined to be homeomorphic to $\mathbb{N}$ <d-cite key="cutland"></d-cite>.
+Notably membership of arbitrary subsets of $\widehat{\mathbb{C}}$ is not a Type-1 predicate problem,
+    a problem ill-suited to classical recursion theory tools.
+Therefore one must rely on effective openness and closedness,
+    which falls in the problem space of Type-2 recursion theory.
+Classical recursion theory (Type-1) concerns discrete spaces.
+To discuss a non-discrete space such as $\widehat{\mathbb{C}}$ one must specify a representation of its structure.
+Type-2 computability provides such a representation through the use of _Baire_ space and effective approximation.
+
+## Computable topologies
+Having deduced that classical computability does not have the power to examine the computability of $\widehat{\mathbb{C}}$ presenting an opportunity to examine modern approaches.
+The space of computability I investigate here is that of _metric spaces_ on $\mathbb{R}^n$ where $(n \ge 1)$.
+There exists a literature for computability on metric spaces belonging to $\mathbb{R}^n$ <d-cite key="frauendiener_klein"></d-cite>
+    <d-cite key="brattka_weihrauch"></d-cite> <d-cite key="brattka_presser"></d-cite> <d-cite key="brattka"></d-cite>
+    <d-cite key="weihrauch_book"></d-cite> <d-cite key="weihrauch_article"></d-cite>
+    <d-cite key="weihrauch_comp"></d-cite>.
+The literature describes the "classical approach" above as _type one_ theory of computability.
+As discussed the type one theory is ineffective on spaces on the order of $\mathbb{R}^n$ where $n \ge 1$.
+The literature then converges on <d-cite key="weihrauch_comp"></d-cite> <d-cite key="weihrauch_book"></d-cite>
+    which describes the _type two_ theory of effectivity (TTE) which works in spaces on the order of $\mathbb{R}^n$.
+The TTE has only appeared so far in writings stemming from <d-cite key="weihrauch_book"></d-cite> in my readings.
+There exist previous sources of computability on broader spaces than $\mathbb{N}$ though none as general as TTE.
+Notably TTE claims power enough to prove $\mathbb{R}$ a computable space <d-cite key="weihrauch_article"></d-cite>.
+For the scope of $\widehat{\mathbb{C}}$ TTE provides insight into computability of metric spaces.
+Such that TTE describes a theory of computability tied to specific topologies known as _Baire spaces_ <d-cite key="weihrauch_book"></d-cite>.
+TTE describes a computable metric space as the four tuple $\bar{M}$ described in Eq. $\eqref{eq:tte-m}$.
+Dictating that the cardinality of $M$ be at most that of a _Baire space_, $card(M) \le card(\mathbb{B})$.
+
+$$
+\begin{equation} \label{eq:tte-m}
+\bar{M} := (M, d, A, \alpha)
+\end{equation}
+$$
+
+1. $(M,d)$ is a metric space
+2. $A \subset M$ is dense in $M$
+3. $\alpha : \mathbb{N} \rightarrow A$ is a total numbering of $A$
+4. $$D_{<} := \{ \langle i, j, k \rangle \mid d(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k) \}$$ is recursively enumerable
+
+Therefore by TTE if one can satisfy and prove the validity of the four elements of the tuple $\bar{M}$ then one proves the effectivity of the space $(M, d)$.
+In the article so far It is clear that the metric space under investigation is $(\widehat{\mathbb{C}}, d_{ch})$.
+Notably it was proven that $\Omega$ from Eq. $\eqref{def:omega}$ is a dense subset of this metric space.
+Thus if there exists functions $\alpha$ and $D_{<}$ then the existence of recursively enumerable regions or $(\widehat{\mathbb{C}}, d_{ch})$ can be proved to exist.
+
+<div class="prop-block" markdown="1">
+** Proposition 4**
+
+There exists a tuple $\bar{M}$ of the form described by equation Eq. $\eqref{construct:bar-M}$ that satisfies _TTE_.
+
+$$
+\begin{equation} \label{construct:bar-M}
+    \bar{M} := ((\widehat{\mathbb{C}}, d_{ch}), \Omega, \alpha, D_<)
+\end{equation}
+$$
+</div>
+<div class="proof-block" markdown="1">
+It is clear from _proposition_ 3 that $Omega$ is dense in $\widehat{\mathbb{C}}$ there for it suffices to show the existence and definition of both $\alpha$ and $D_<$.
+
+<div class="prop-block" markdown="1">
+** Lemma 1 **
+
+There exists a bijection $\alpha$ of the form $\mathbb{N} \mapsto \Omega$.
+</div>
+<div class="proof-block" markdown="1">
+It is clear that $\Omega$ is isomorphic to that of $\mathbb{Q}^2$,
+    therefore it suffices to show that $\mathbb{Q}^2$ is denumerable.
+In particular,
+    It must be shown that a bijection $\alpha: \mathbb{N}^2 \rightarrow \mathbb{Q}^2$ exists.
+It is a standard fact of analysis that $\mathbb{Q}$ is denumerable.
+Notably the Cartesian product of any two denumerable sets is its denumerable <d-cite key="tao"></d-cite>,
+    there $\mathbb{Q}^2$ is denumerable.
+Therefore there exists a bijection alpha $\alpha: \mathbb{N} \rightarrow \Omega$ proving our proposition.
+</div>
+
+The function $v_\mathbb{Q}$ is that most natural mapping $\mathbb{N} \mapsto \mathbb{Q}$.
+Therefore $D_<$ can be described as those the set of natural three tuples for which the $d_{ch}(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k)$.
+From Lemma 1 it is clear that alpha will result in elements of $\Omega$,
+    using the chordal metric $d_{ch}$ results in some distance $z \in \mathbb{C}$.
+Therefore the set $D_<$ is all those natural three tuples which result in a complex distance on $\widehat{\mathbb{C}}$ which is less than some rational mapping $v_\mathbb{Q}(k)$.
+Using churches thesis the characteristic function can be understood mechanically,
+    therefore it can be assumed to be effectively computable <d-cite key="cutland"></d-cite>.
+Since the characteristic function is effectively computable $D_<$ is recursively enumerable <d-cite key="cutland"></d-cite>.
+Having found $\alpha$ in Lemma 1 and discovered that recursively enumerable function $D_<$,
+    the existence of $\bar{M}$ has been proven satisfying TTE.
+</div>
 
 <!-- TODO: Put genuine extensions, such as effective compactness or hyperspace representations, in a short future-work paragraph. -->
 # Future work
+This kind of investigation is quite rewarding though extensions of this work seem substantial comparatively.
+One could postulate the construction of such a computable region using research in computable geometry.
+There is a possibility that such an exercise could be useful in furthering understanding $\widehat{\mathbb{C}}$ topologically.
+In particular in the sense that computational geometry could construct such a region of $\widehat{\mathbb{C}}$ without interpolation or approximation.
+I would personally love to see such a construction.
+The extensions of the use case for TTE are endless,
+    moving forward it will be inevitable to halt curiosity in using the tool to examine such structures.
 
 # Nomenclature
 1. $\emptyset$: Symbol for the empty set $$\{\}$$.
