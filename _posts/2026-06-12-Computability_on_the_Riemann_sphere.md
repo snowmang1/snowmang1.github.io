@@ -51,6 +51,7 @@ toc:
 # _styles:
 # Can be used for custom style elements
 ---
+<!-- TODO: actual intro is needed at the very end -->
 # Introduction
 placeholder
 
@@ -97,7 +98,7 @@ $$
 
 $$
 \begin{equation} \label{axiom:topo-2}
-    \mathcal{U} \subseteq \mathcal{T} \implies \bigcup \mathcal{U} \in T
+    \mathcal{U} \subseteq \mathcal{T} \implies \bigcup \mathcal{U} \in \mathcal{T}
 \end{equation}
 $$
 
@@ -112,7 +113,6 @@ $$
 
 There exists a topological basis $\mathcal{B}$ for metric topology $\mathcal{T}$ formed from the metric space $(\widehat{\mathbb{C}}, d_{ch})$
 </div>
-
 <div class="proof-block" markdown="1">
 Recall that $(\widehat{\mathbb{C}}, d_{ch})$ is a metric space <d-cite key="drake"></d-cite>.
 Define a set $\mathcal{B}$ by Eq. $\eqref{def:basis}, \eqref{def:basis-elem}$,
@@ -120,40 +120,26 @@ Define a set $\mathcal{B}$ by Eq. $\eqref{def:basis}, \eqref{def:basis-elem}$,
 
 $$
 \begin{equation} \label{def:basis}
-    \mathcal{B} := \{ B_{d_{ch}}(x, r) : x \in \widehat{\mathbb{C}}, r > 0 \}
+    \mathcal{B} := \{ \bigcup B_{d_{ch}}(z ; r) : z \in \widehat{\mathbb{C}}, r > 0 \}
 \end{equation}
 $$
 
 $$
 \begin{equation} \label{def:basis-elem}
-    x \in \widehat{\mathbb{C}} \implies (\exists B \in \mathcal{B}) \land (x \in B)
+    z \in \widehat{\mathbb{C}} \implies (\exists B \in \mathcal{B}) \land (z \in B)
 \end{equation}
 $$
 
-Notably $\widehat{\mathbb{C}}$ is a complete space <d-cite key="conway"></d-cite>,
-    meaning there exist no gaps in $\widehat{\mathbb{C}}$.
+Notably $\widehat{\mathbb{C}}$ is a complete space <d-cite key="conway"></d-cite>.
 
-<div class="prop-block" markdown="1">
-**Lemma 1**
-
-$\mathcal{B}$ is a topological basis in the metric space $(\widehat{\mathbb{C}}, d_{ch})$
-</div>
-<div class="proof-block" markdown="1">
-Since $(\widehat{\mathbb{C}}, d_{ch})$ is a metric space we have access to the triangle inequality.
-A basis is defined by the intersection theorem shown in Figure 2.
-This theorem has two main parts explained by Eq. $\eqref{def:basis-1}, \eqref{def:basis-2}$ <d-cite key="g&g"></d-cite> <d-cite key="munkres"></d-cite>.
-
-$$
-\begin{equation} \label{def:basis-1}
-    \forall x \in X \implies (\exists V) \land (x \in V \in \mathcal{B})
-\end{equation}
-$$
-
-$$
-\begin{equation} \label{def:basis-2}
-    (U,V \in \mathcal{B}) \land (x \in U \cap V) \implies (\exists W \in \mathcal{B}) \land (x \in W \subset U \in V)
-\end{equation}
-$$
+Open sets in a metric space have the form $B(x; \epsilon)$ <d-cite key="conway"></d-cite>,
+    therefore it can be known that all sets in $\mathcal{B}$ are open in the metric space.
+By the definition of $\mathcal{B}$ all elements of $(\widehat{\mathbb{C}}, d_{ch})$ belong to some set in $\mathcal{B}$.
+In particular,
+    the definition gives that for all elements of the space there exists an open ball of non-zero radius on that element.
+Any basis set must also have the intersection property <d-cite key="g&g"></d-cite>.
+The property that for any two intersecting open sets $U \cap V$ such that $U$ and $V$ are in the basis set,
+    there exists another set $W$ in the basis set such that $W \in (U \cap V)$ as seen in Figure 2.
 
 {%
     include theme-images.html
@@ -163,24 +149,21 @@ $$
     caption="Figure 2: Intersection property of topological basis sets"
 %}
 
-The way I have defined our set $\mathcal{B}$ satisfies Eq. $\eqref{def:basis-1}$.
-To satisfy Eq. $\eqref{def:basis-2}$ one needs only apply the triangle inequality
-    <d-footnote> which seems to always by the answer in topology for some reason? </d-footnote>.
-That is if there exists two open balls $U$ and $V$ with radii $\epsilon$ and $\gamma$ respectively,
-    such that the outer ring of $U$ is within distance $\gamma$ or $V$, etc.
-It is appropriate to assume that there exists some point $x$ that is within $\gamma$ of $V$ and $\epsilon$ of $U$,
-    $x \in V \cap U$.
-Lets assume that the distance from the center of $V$ ($V_c$) to the nearest point of $U$ is $\gamma_1$ at distance $\gamma - \epsilon$ from $V_c$,
-    let us call the equivalent point on for $U$ $\epsilon_1$.
-It is now possible to approximate the distance $d_{ch}(\gamma_1, \epsilon_1) > 0$ as that radius of $V \cap U$.
-Therefore there must exist a point $x \in V \cap U$ such that $d_{ch}(\gamma_1, \epsilon_1) \le d_{ch}(\gamma_1, x) + d_{ch}(x, \epsilon_1)$.
-We call this point $x$ the center of the open set $W$ with radius $min(d_{ch}(\gamma_1, x), d_{ch}(x, \epsilon_1))$,
-    Satisfying Eq. $\eqref{def:basis-2}$.
+<div class="prop-block" markdown="1">
+** Lemma 1 **
+
+The set $\mathcal{B}$ has the intersectional property.
+</div>
+<div class="proof-block" markdown="1">
+Let $U, V \in \mathcal{B}$ such that $U \cap V \ne \emptyset$.
+In particular there exists some element $z \in U \cap V$ such that $z \in (\widehat{\mathbb{C}}, d_{ch})$ by Eq. $\eqref{def:basis}$.
+It is known that the finite union of two open sets on a metric space is open <d-cite key="g&g"></d-cite>,
+    therefore there exists some $z \in W \subset U \cap V$.
+Any open set on a metric space has the form $B(z;r)$ thus $W \in \mathcal{B}$ by Eq. $\eqref{def:basis}$.
 </div>
 
-Using Lemma 1 we know that $\mathcal{B}$ forms a basis on the metric space $(\widehat{\mathbb{C}}, d_{ch})$.
-Thus the topology $\mathcal{T}$ exists as the arbitrary union of basis sets <d-cite key="g&g"></d-cite>.
-Topology $\mathcal{T}$ can be defined as Eq. $\eqref{def:T}$ using basis $\mathcal{B}$.
+Given the above information on $\mathcal{B}$ and Lemma 1 it proved a basis set.
+Therefore the metric topology $\mathcal{T}$ exists and takes the form of Eq. $\eqref{def:T}$.
 
 $$
 \begin{equation} \label{def:T}
@@ -227,6 +210,39 @@ It is clear that by our definition of homeomorphic above that stereographic proj
 </div>
 
 It can now understood by Lemma 2 that if $S^2$ is shown to be compact then so is $\widehat{\mathbb{C}}$ via the laws of topology <d-cite key="g&g"></d-cite>.
+
+<div class="prop-block" markdown="1">
+** Lemma 3 **
+
+$S^2$ is compact via the Hiene-Borel theorem Eq. $\eqref{def:HB}$.
+</div>
+<div class="proof-block" markdown="1">
+The set $S^2$ defined by Eq. $\eqref{def:S2}$ is obviously a bounded subset of $\mathbb{R}^3$.
+
+$$
+\begin{equation} \label{def:S2}
+    S^2 := \{ x : (x \in \mathbb{R}^3) \land (\|x\| = 1) \}
+\end{equation}
+$$
+
+That is,
+    it is evident there exists both $sup(S^2) \in \mathbb{R}^3$ and $inf(S^2) \in \mathbb{R}^3$.
+There exists a continuous function $f$ defined by Eq. $\eqref{def:f}$ such that $f$ is continuous.
+
+$$
+\begin{equation} \label{def:f}
+\begin{split}
+    f &: \mathbb{R}^3 \rightarrow \mathbb{R} \\
+    f(x) &= \| x \|
+\end{split}
+\end{equation}
+$$
+
+Notably the pre-image of a closed set is closed via a continuous function across two metric spaces <d-cite key="g&g"></d-cite>.
+Recall the set $\{ 1 \}$ is closed in $\mathbb{R}$,
+    and $f(S^2) = \{ 1 \}$ by  Eq. $\eqref{def:S2}$.
+Therefore since $\{ 1 \}$ is closed in $\mathbb{R}$,
+    it must be true that $S^2$ is closed in $\mathbb{R}^3$.
 Via the Hiene-Borel Eq. $\eqref{def:HB}$ it is possible to show that $S^2$ is a compact space.
 
 $$
@@ -235,59 +251,23 @@ $$
 \end{equation}
 $$
 
-It is trivial to see that $S^2$ is bounded from its construction, see Eq. $\eqref{def:S2}$
-
-$$
-\begin{equation} \label{def:S2}
-    S^2 := \{ x : (x \in \mathbb{R}^3) \land (\|x\| = 1) \}
-\end{equation}
-$$
-
-Though the closedness of $S^2$ is also somewhat obvious from its definition it is worth examining.
-By definition the compliment of a closed set must be an open set <d-cite key="g&g"></d-cite>.
-In particular,
-    $S^2$ is closed if and only if $\mathbb{R}^3 \setminus S^2$ is open.
-It becomes clearer from construction that the compliment Eq. $\eqref{eq:S2-comp}$ is union of open sets though it may be worth further examination.
-
-$$
-\begin{equation} \label{eq:S2-comp}
-    \Omega = \mathbb{R}^3 \setminus S^2 := \{ x : (x \in \mathbb{R}^3) \land ((\|x\| > 1) \lor (\|x\| < 1)) \}
-\end{equation}
-$$
-
-$$
-\begin{equation} \label{eq:S2-comp2}
-    \Omega = \{ x : x \in \mathbb{R}^3, \|x\| < 1 \} \cup \{ x : x \in \mathbb{R}^3, \|x\| > 1 \}
-\end{equation}
-$$
-
-The left hand side of the union in Eq. $\eqref{eq:S2-comp2}$ is a trivial open set,
-    however the right hand side is not so obvious.
-Recall that $S^2$ is a bounded sphere,
-    thus the right hand side of the union represents all points in $\mathbb{R}^3$ that are outside the sphere while the left hand side is all points inside.
-In particular given that all those points in $S^2$ have exactly distance $1$ from the origin it is conceivable that an open ball centered distance $2$ from the origin could be formed with radius $1$.
-By this approach one can create an infinite number of open balls such that the union of which will be the right hand side of our union from Eq. $\eqref{eq:S2-comp2}$.
-Notably the union of two open sets is itself an open set <d-cite key="g&g"></d-cite>,
-    therefore $S^2$ is shown to be a closed set.
-Since $S^2$ adheres to those requirements of the Heine-Borel theorem,
-    it is has been proved that $S^2$ is compact.
-Since $S^2$ is compact then by Lemma 2 $\widehat{\mathbb{C}}$ is compact.
-By Lemma 1 it is known that $\mathbb{C}$ is not compact,
-    therefore it has been proved that $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
+It has been proven that $S^2$ is both bounded and closed in $\mathbb{R}^3$,
+    proving by Eq. $\eqref{def:HB}$ that $S^2$ is compact.
 </div>
 
-<!-- WARN: it may be the case that I am conflating C-hat here -->
+Given Lemma 1, Lemma 2 & Lemma 3 it can be said that $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
+</div>
+
 ## Dense subsequence
-It is worth exploring a specific dense subset of $(\widehat{\mathbb{C}}, d_{ch})$ as it will be of importance.
-Let us define the set $\Omega$ as those points rational points of $\mathbb{C}$ that have been mapped to $S^2$ via stereographic projection.
+It is worth exploring a specific dense subset of $\widehat{\mathbb{C}}$ as it will be of importance.
+Let us define the set $\Omega$ as those points rational points of $\widehat{\mathbb{C}}$ including the point $\infty$.
 In particular it can be seen by Eq. $\eqref{def:omega}$ that $\Omega \subset \widehat{\mathbb{C}}$,
     as the complex numbers are isomorphic to $\mathbb{R}^2$ not $\mathbb{Q}^2$.
 
 $$
 \begin{equation} \label{def:omega}
 \begin{split}
-    A := \{ z_1 + iz_2 :  z_1, z_2 \in \mathbb{Q} \} \cup \{ \infty \} \\
-    \Omega := \{ Z : Z \in (A \mapsto S^2) \}
+    \Omega := (\mathbb{Q} + i\mathbb{Q} \cup \{ \infty \}) \subset \widehat{\mathbb{C}}
 \end{split}
 \end{equation}
 $$
@@ -295,7 +275,7 @@ $$
 <div class="prop-block" markdown="1">
 ** Proposition 3 **
 
-$(\Omega, d_{ch})$ is dense in $(\widehat{\mathbb{C}}, d_{ch})$.
+$\Omega$ is dense in $\widehat{\mathbb{C}}$.
 </div>
 <div class="proof-block" markdown="1">
 A dense subset is defined as that subset $U$ of a space $X$ for which the closure of the subset $\bar{U}$ is the space Eq. $\eqref{def:dense-subset}$.
@@ -306,9 +286,9 @@ $$
 \end{equation}
 $$
 
-The closure of the rational numbers is the real numbers $\bar{\mathbb{Q}} = \mathbb{R}$ implies that $\bar{\mathbb{Q} + i\mathbb{Q}} = \mathbb{R} + i\mathbb{R}$.
-Therefore as $A \mapsto S^2$ is an homeomorphism via Lemma 2 of theorem 2,
-    it has been shown that $(\Omega, d_{ch})$ is dense in $(\widehat{\mathbb{C}}, d_{ch})$.
+The closure of the rational numbers is the real numbers $\bar{\mathbb{Q}} = \mathbb{R}$ implies that $\overline{\mathbb{Q} + i\mathbb{Q}} = \mathbb{R} + i\mathbb{R}$.
+Thus it must be true that $$\mathbb{Q} + i\mathbb{Q} \cup \{ \infty \}$$ is dense in $$\mathbb{R} + i\mathbb{R} \cup \{ \infty \}$$,
+    proving that $\Omega$ is dense in $\widehat{\mathbb{C}}$.
 </div>
 
 # Computability
@@ -437,14 +417,45 @@ Therefore $D_<$ can be described as those the set of natural three tuples for wh
 From Lemma 1 it is clear that alpha will result in elements of $\Omega$,
     using the chordal metric $d_{ch}$ results in some distance $z \in \mathbb{C}$.
 Therefore the set $D_<$ is all those natural three tuples which result in a complex distance on $\widehat{\mathbb{C}}$ which is less than some rational mapping $v_\mathbb{Q}(k)$.
-Using churches thesis the characteristic function can be understood mechanically,
-    therefore it can be assumed to be effectively computable <d-cite key="cutland"></d-cite>.
-Since the characteristic function is effectively computable $D_<$ is recursively enumerable <d-cite key="cutland"></d-cite>.
-Having found $\alpha$ in Lemma 1 and discovered that recursively enumerable function $D_<$,
-    the existence of $\bar{M}$ has been proven satisfying TTE.
+
+<!-- TODO: this proof must be rock solid -->
+<div class="prop-block" markdown="1">
+** Lemma 2 **
+
+There exists a partially computable function $D_<$.
+</div>
+<div class="proof-block" markdown="1">
+The set $D_<$ is composed of those natural three-tuples,
+    such that Eq. $\eqref{def:D<}$ is true.
+
+$$
+\begin{equation} \label{def:D<}
+    D_< := \{\langle i, j ,k \rangle : d_{ch}(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k) \}
+\end{equation}
+$$
+
+The function $\alpha$ will always result in some point $x \in \Omega$.
+Limiting the image of the chordal metric to $\mathbb{R}$ as defined in Eq. $\eqref{def:dch}$.
+
+$$
+\begin{equation} \label{def:dch}
+    d_{ch}(z_1, z_2) = \frac{2|z_1 - z_2|}{\sqrt{(1 + |z_1|^2)(1 + |z_2|^2)}}, (z_1, z_2 \in \mathbb{Q})
+\end{equation}
+$$
+
+Thus ownership of $D_<$ is defined by those natural three tuples satisfying Eq. $\eqref{def:D<}$.
+Given sufficiently accurate upper bounds Eq. $\eqref{def:D<}$ is true for all but very few values.
+
+A partially computable function is that function which computes a partially decidable predicate <d-cite key="cutland"></d-cite>.
+Notably a partially decidable predicate is one where the condition for ownership is known but non-ownership is not,
+    as is the case here.
+That is $x \in D_<$ is defined as above but $x \notin D_<$ is undefined.
+It has been proven that $D_<$ is partially decidable.
 </div>
 
-<!-- TODO: Put genuine extensions, such as effective compactness or hyperspace representations, in a short future-work paragraph. -->
+With the addition of Lemma 2 it has been proven that there exists a tuple $\bar{M}$ satisfying TTE.
+</div>
+
 # Future work
 This kind of investigation is quite rewarding though extensions of this work seem substantial comparatively.
 One could postulate the construction of such a computable region using research in computable geometry.
