@@ -53,7 +53,13 @@ toc:
 ---
 <!-- TODO: actual intro is needed at the very end -->
 # Introduction
-placeholder
+Here I explore the computability of the Riemann sphere $\widehat{\mathbb{C}}$.
+The necessary foreground to the problem is laid out by an exploration of the topology of $\widehat{\mathbb{C}}$ and then computability on such spaces.
+Theorem 1 is given to show that there exists a metric topology on $\widehat{\mathbb{C}}$.
+Given the constraints of traditional recursion theory it is necessary to use type 2 computability to explore a structure in real space.
+With a brief introduction to type 2 computability it becomes apparent that type two effectivity theory (TTE) is a useful tool for such a question.
+Using that metric topology on $\widehat{\mathbb{C}}$ and a dense set there in,
+    the claim of TTE computability can be made on the space of $\widehat{\mathbb{C}}$.
 
 # Topology of Riemann sphere
 Here I will investigate the Riemann sphere $\widehat{\mathbb{C}}$.
