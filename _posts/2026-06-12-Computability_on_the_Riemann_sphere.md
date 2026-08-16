@@ -51,7 +51,6 @@ toc:
 # _styles:
 # Can be used for custom style elements
 ---
-<!-- TODO: actual intro is needed at the very end -->
 # Introduction
 Here I explore the computability of the Riemann sphere $\widehat{\mathbb{C}}$.
 The necessary foreground to the problem is laid out by an exploration of the topology of $\widehat{\mathbb{C}}$ and then computability on such spaces.
@@ -67,6 +66,7 @@ To this end I will use the chordal metric $d_{ch}$ defined as $d$ in <d-cite key
     and make great use of the complex plane $\mathbb{C}$.
 I will use the definition of the sphere and stereographic projection from a previous work <d-cite key="drake"></d-cite>.
 
+<!-- TODO: Fix ball basis proof to use short radius argument -->
 ## Metric topology
 The metric topology is that topology which makes use of a metric space in order to form a basis set.
 For any metric space $(X,d)$ open and closed balls are defined by Eq. $\eqref{def:open-closed-balls}$ and Figure 1, respectively <d-cite key="conway"></d-cite>.
@@ -126,7 +126,7 @@ Define a set $\mathcal{B}$ by Eq. $\eqref{def:basis}, \eqref{def:basis-elem}$,
 
 $$
 \begin{equation} \label{def:basis}
-    \mathcal{B} := \{ \bigcup B_{d_{ch}}(z ; r) : z \in \widehat{\mathbb{C}}, r > 0 \}
+    \mathcal{B} := \{ B_{d_{ch}}(z ; r) : z \in \widehat{\mathbb{C}}, r > 0 \}
 \end{equation}
 $$
 
@@ -163,7 +163,7 @@ The set $\mathcal{B}$ has the intersectional property.
 <div class="proof-block" markdown="1">
 Let $U, V \in \mathcal{B}$ such that $U \cap V \ne \emptyset$.
 In particular there exists some element $z \in U \cap V$ such that $z \in (\widehat{\mathbb{C}}, d_{ch})$ by Eq. $\eqref{def:basis}$.
-It is known that the finite union of two open sets on a metric space is open <d-cite key="g&g"></d-cite>,
+It is known that the finite intersection of two open sets on a metric space is open <d-cite key="g&g"></d-cite>,
     therefore there exists some $z \in W \subset U \cap V$.
 Any open set on a metric space has the form $B(z;r)$ thus $W \in \mathcal{B}$ by Eq. $\eqref{def:basis}$.
 </div>
@@ -231,8 +231,6 @@ $$
 \end{equation}
 $$
 
-That is,
-    it is evident there exists both $sup(S^2) \in \mathbb{R}^3$ and $inf(S^2) \in \mathbb{R}^3$.
 There exists a continuous function $f$ defined by Eq. $\eqref{def:f}$ such that $f$ is continuous.
 
 $$
@@ -326,7 +324,7 @@ Formally we say that a set is recursive when its characteristic function is comp
 Moving forward note that this article will use the term recursive when discussing sets,
     and computable when discussing functions.
 A sets characteristic function is the ownership defining function corresponding to the predicate $x \in A$.
-Formally for any set $A$ the characteristic function $c_A: \mathbb{N} \rightarrow \{0,1\}$ is that function which computes predicate $x \in A$.
+Formally for any set $A \in \mathbb{N}$ the characteristic function $c_A: \mathbb{N} \rightarrow \{0,1\}$ is that function which computes predicate $x \in A$.
 Notably $c_A$ shown in Eq. $\eqref{fxn:c_A}$ is computable iff $x \in A$ is a _decidable_ predicate.
 
 $$
@@ -343,8 +341,6 @@ It is clear that a set is recursive only when its characteristic function is com
     thus possessing a decidable predicate $x \in A$.
 Via <d-cite key="cutland"></d-cite> all characteristic functions (defining recursive sets) are defined with denumerable domains,
     as the recursive sets themselves must be denumerable.
-In particular,
-    it is the case that in classical computability recursive sets are defined to be homeomorphic to $\mathbb{N}$ <d-cite key="cutland"></d-cite>.
 Notably membership of arbitrary subsets of $\widehat{\mathbb{C}}$ is not a Type-1 predicate problem,
     a problem ill-suited to classical recursion theory tools.
 Therefore one must rely on effective openness and closedness,
@@ -424,7 +420,7 @@ From Lemma 1 it is clear that alpha will result in elements of $\Omega$,
     using the chordal metric $d_{ch}$ results in some distance $z \in \mathbb{C}$.
 Therefore the set $D_<$ is all those natural three tuples which result in a complex distance on $\widehat{\mathbb{C}}$ which is less than some rational mapping $v_\mathbb{Q}(k)$.
 
-<!-- TODO: this proof must be rock solid -->
+<!-- TODO: The proof of D< is not complete yet -->
 <div class="prop-block" markdown="1">
 ** Lemma 2 **
 
