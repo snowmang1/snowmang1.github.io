@@ -66,7 +66,6 @@ To this end I will use the chordal metric $d_{ch}$ defined as $d$ in <d-cite key
     and make great use of the complex plane $\mathbb{C}$.
 I will use the definition of the sphere and stereographic projection from a previous work <d-cite key="drake"></d-cite>.
 
-<!-- TODO: Fix ball basis proof to use short radius argument -->
 ## Metric topology
 The metric topology is that topology which makes use of a metric space in order to form a basis set.
 For any metric space $(X,d)$ open and closed balls are defined by Eq. $\eqref{def:open-closed-balls}$ and Figure 1, respectively <d-cite key="conway"></d-cite>.
@@ -91,6 +90,14 @@ $$
 The metric topology of a metric space is built atop the basis set of that metric space.
 In particular, for any family of open sets $\mathcal{B}$ of metric space $(X,d)$,
     $\mathcal{B}$ is a basis set if every open subset of $(X,d)$ is a union of sets in $\mathcal{B}$ <d-cite key="g&g"></d-cite>.
+It is understood that $\mathcal{T}$ can be built from the basis $\mathcal{B}$ in the manner described by Eq. $\eqref{def:T-from-basis}$.
+
+$$
+\begin{equation} \label{def:T-from-basis}
+    \mathcal{T} := \{ \bigcup \mathcal{U} : \mathcal{U} \subseteq \mathcal{B} \}
+\end{equation}
+$$
+
 A topology has three axioms which define both how to build them and how they behave, see Eq. $\eqref{axiom:topo-1}$,
     $\eqref{axiom:topo-2}$,
     $\eqref{axiom:topo-3}$,
@@ -120,6 +127,8 @@ $$
 There exists a topological basis $\mathcal{B}$ for metric topology $\mathcal{T}$ formed from the metric space $(\widehat{\mathbb{C}}, d_{ch})$
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Proposition 1**
+
 Recall that $(\widehat{\mathbb{C}}, d_{ch})$ is a metric space <d-cite key="drake"></d-cite>.
 Define a set $\mathcal{B}$ by Eq. $\eqref{def:basis}, \eqref{def:basis-elem}$,
     that is a set of open balls such that all elements of the space are included.
@@ -136,8 +145,6 @@ $$
 \end{equation}
 $$
 
-Notably $\widehat{\mathbb{C}}$ is a complete space <d-cite key="conway"></d-cite>.
-
 Open sets in a metric space have the form $B(x; \epsilon)$ <d-cite key="conway"></d-cite>,
     therefore it can be known that all sets in $\mathcal{B}$ are open in the metric space.
 By the definition of $\mathcal{B}$ all elements of $(\widehat{\mathbb{C}}, d_{ch})$ belong to some set in $\mathcal{B}$.
@@ -145,7 +152,7 @@ In particular,
     the definition gives that for all elements of the space there exists an open ball of non-zero radius on that element.
 Any basis set must also have the intersection property <d-cite key="g&g"></d-cite>.
 The property that for any two intersecting open sets $U \cap V$ such that $U$ and $V$ are in the basis set,
-    there exists another set $W$ in the basis set such that $W \in (U \cap V)$ as seen in Figure 2.
+    there exists another set $W$ in the basis set such that $W \subset (U \cap V)$ as seen in Figure 2.
 
 {%
     include theme-images.html
@@ -156,26 +163,60 @@ The property that for any two intersecting open sets $U \cap V$ such that $U$ an
 %}
 
 <div class="prop-block" markdown="1">
-** Lemma 1 **
+**Lemma 1**
 
 The set $\mathcal{B}$ has the intersectional property.
 </div>
 <div class="proof-block" markdown="1">
-Let $U, V \in \mathcal{B}$ such that $U \cap V \ne \emptyset$.
-In particular there exists some element $z \in U \cap V$ such that $z \in (\widehat{\mathbb{C}}, d_{ch})$ by Eq. $\eqref{def:basis}$.
-It is known that the finite intersection of two open sets on a metric space is open <d-cite key="g&g"></d-cite>,
-    therefore there exists some $z \in W \subset U \cap V$.
-Any open set on a metric space has the form $B(z;r)$ thus $W \in \mathcal{B}$ by Eq. $\eqref{def:basis}$.
-</div>
+**Proof of Lemma 1**
 
-Given the above information on $\mathcal{B}$ and Lemma 1 it proved a basis set.
-Therefore the metric topology $\mathcal{T}$ exists and takes the form of Eq. $\eqref{def:T}$.
-
+The open sets $U, V \in \mathcal{B}$ must be open balls,
+    thus let us define them as Eq. $\eqref{def:u-v}$.
 $$
-\begin{equation} \label{def:T}
-    \mathcal{T} := \{ \bigcup \mathcal{U} : \mathcal{U} \subseteq \mathcal{B} \}
+\begin{equation} \label{def:u-v}
+\begin{split}
+    U := B(a ; r_U) \\
+    V := B(b ; r_V)
+\end{split}
 \end{equation}
 $$
+
+Such that some point $z$ has the property $z \in B(a ; r_U) \cap B(b ; r_V)$.
+Given that $U \cap V \ne \emptyset$ we can say that there exists $W \in U \cap V$.
+In particular,
+    we can describe $W$ as that open ball centered on the point $z$ with radius of the shortest distance to the bound of either intersecting set Eq. $\eqref{def:w1}$.
+
+$$
+\begin{equation} \label{def:w1}
+\begin{split}
+    W := B(z ; r_W) \\
+    r_W = min[(r_U - d(z,a)),(r_V - d(z, b))]
+\end{split}
+\end{equation}
+$$
+
+This grantees the relationship $W \subseteq U \cap V$ which is not quite the desired $W \subset U \cap V$,
+    the fix is observed by Eq. $\eqref{def:w2}$.
+
+$$
+\begin{equation} \label{def:w2}
+\begin{split}
+    W := B(z ; r_W) \\
+    r_W = \frac{1}{2}min[(r_U - d(z,a)),(r_V - d(z, b))]
+\end{split}
+\end{equation}
+$$
+
+This guarantees the desired relation $z \in W \subset U \cap V$ required by the intersection property.
+The remaining doubt is that all elements of $W$ belong to both $U$ and $V$.
+This can easily be observed through the triangle inequality.
+It is observed that for any point $w \in W$ that $d(a,w) \le d(a,z) + d(z,w) < d(z,a) + r_W < r_U$.
+The same relation is observed for $V$,
+    therefore all elements of $W$ belong to $U$ and $V$.
+</div>
+
+Given the above information on $\mathcal{B}$ and **Lemma 1** it proved a basis set.
+Therefore the metric topology $\mathcal{T}$ exists and takes the form of Eq. $\eqref{def:T-from-basis}$.
 </div>
 
 ## Compactness of $$\widehat{\mathbb{C}}$$
@@ -186,43 +227,50 @@ In topology equivalence between spaces is defined as those spaces connected via 
 That is if there exists a homeomorphism $f: X \rightarrow Y$ the spaces $X$ and $Y$ are said to be topologically equivalent.
 
 <div class="prop-block" markdown="1">
-** Proposition 2 **
+**Proposition 2**
 
 $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Proposition 2**
 
 First let us prove that $\mathbb{C}$ is not compact.
 <div class="prop-block" markdown="1">
-** Lemma 1 **
+**Lemma 1**
 
 $\mathbb{C}$ is not compact.
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Lemma 1**
+
 Any compact set must be closed and bounded <d-cite key="g&g"></d-cite>.
 $\mathbb{C}$ is unbounded,
     therefore $\mathbb{C}$ is not compact.
 </div>
 
 <div class="prop-block" markdown="1">
-** Lemma 2 **
+**Lemma 2**
 
 There exists a homeomorphism $f: \widehat{\mathbb{C}} \rightarrow S^2$ such that $\widehat{\mathbb{C}}$ and $S^2$ are homeomorphic.
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Lemma 2**
+
 Recall that in <d-cite key="drake"></d-cite> _stereographic projection_ is defined as a function mapping $$\mathbb{C}_\infty$$ to $S^2$ using the chordal metric.
 Here the symbolic representation of $\mathbb{C}_\infty$ (Conway's notation) has been changed to $\widehat{\mathbb{C}}$ (common notation) due to personal preference.
 It is clear that by our definition of homeomorphic above that stereographic projection is some homeomorphism $f: \widehat{\mathbb{C}} \rightarrow S^2$.
 </div>
 
-It can now understood by Lemma 2 that if $S^2$ is shown to be compact then so is $\widehat{\mathbb{C}}$ via the laws of topology <d-cite key="g&g"></d-cite>.
+It can now understood by **Lemma 2** that if $S^2$ is shown to be compact then so is $\widehat{\mathbb{C}}$ via the laws of topology <d-cite key="g&g"></d-cite>.
 
 <div class="prop-block" markdown="1">
-** Lemma 3 **
+**Lemma 3**
 
 $S^2$ is compact via the Hiene-Borel theorem Eq. $\eqref{def:HB}$.
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Lemma 3**
+
 The set $S^2$ defined by Eq. $\eqref{def:S2}$ is obviously a bounded subset of $\mathbb{R}^3$.
 
 $$
@@ -244,7 +292,7 @@ $$
 
 Notably the pre-image of a closed set is closed via a continuous function across two metric spaces <d-cite key="g&g"></d-cite>.
 Recall the set $\{ 1 \}$ is closed in $\mathbb{R}$,
-    and $f(S^2) = \{ 1 \}$ by  Eq. $\eqref{def:S2}$.
+    and $S^2 = f^{-1}(\{ 1 \})$ by  Eq. $\eqref{def:S2}$.
 Therefore since $\{ 1 \}$ is closed in $\mathbb{R}$,
     it must be true that $S^2$ is closed in $\mathbb{R}^3$.
 Via the Hiene-Borel Eq. $\eqref{def:HB}$ it is possible to show that $S^2$ is a compact space.
@@ -259,7 +307,7 @@ It has been proven that $S^2$ is both bounded and closed in $\mathbb{R}^3$,
     proving by Eq. $\eqref{def:HB}$ that $S^2$ is compact.
 </div>
 
-Given Lemma 1, Lemma 2 & Lemma 3 it can be said that $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
+Given **Lemma 1**, **Lemma 2** & **Lemma 3** it can be said that $\widehat{\mathbb{C}}$ is a compactification of $\mathbb{C}$.
 </div>
 
 ## Dense subsequence
@@ -277,11 +325,13 @@ $$
 $$
 
 <div class="prop-block" markdown="1">
-** Proposition 3 **
+**Proposition 3**
 
 $\Omega$ is dense in $\widehat{\mathbb{C}}$.
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Proposition 3**
+
 A dense subset is defined as that subset $U$ of a space $X$ for which the closure of the subset $\bar{U}$ is the space Eq. $\eqref{def:dense-subset}$.
 
 $$
@@ -315,7 +365,7 @@ $$
 \end{equation}
 $$
 
-It is understood that $\mathbb{R}^2$ is isomorphic to $\mathbb{C} \cup \{ \infty \}$,
+It is understood that $\mathbb{R}^2$ is isomorphic to $\mathbb{C}$ and $\widehat{\mathbb{C}}$ is isomorphic to $S^2$,
     therefore a region in our sense will be that open connected subset of $\widehat{\mathbb{C}}$.
 
 ## Classical approach
@@ -324,16 +374,15 @@ Formally we say that a set is recursive when its characteristic function is comp
 Moving forward note that this article will use the term recursive when discussing sets,
     and computable when discussing functions.
 A sets characteristic function is the ownership defining function corresponding to the predicate $x \in A$.
-Formally for any set $A \in \mathbb{N}$ the characteristic function $c_A: \mathbb{N} \rightarrow \{0,1\}$ is that function which computes predicate $x \in A$.
+Formally for any set $A \subseteq \mathbb{N}$ the characteristic function $c_A: \mathbb{N} \rightarrow \{0,1\}$ is that function which computes predicate $x \in A$.
 Notably $c_A$ shown in Eq. $\eqref{fxn:c_A}$ is computable iff $x \in A$ is a _decidable_ predicate.
 
 $$
 \begin{equation} \label{fxn:c_A}
-c_A =
-\begin{cases}
-    1 \quad \text{if } x \in A \\
-    0 \quad \text{if } x \notin A \\
-\end{cases}
+c_A = \begin{cases}
+    1, \quad &x \in A \\
+    0, \quad &x \notin A
+    \end{cases}
 \end{equation}
 $$
 
@@ -385,7 +434,7 @@ Notably it was proven that $\Omega$ from Eq. $\eqref{def:omega}$ is a dense subs
 Thus if there exists functions $\alpha$ and $D_{<}$ then the existence of recursively enumerable regions or $(\widehat{\mathbb{C}}, d_{ch})$ can be proved to exist.
 
 <div class="prop-block" markdown="1">
-** Proposition 4**
+**Proposition 4**
 
 There exists a tuple $\bar{M}$ of the form described by equation Eq. $\eqref{construct:bar-M}$ that satisfies _TTE_.
 
@@ -396,14 +445,18 @@ $$
 $$
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Proposition 4**
+
 It is clear from _proposition_ 3 that $Omega$ is dense in $\widehat{\mathbb{C}}$ there for it suffices to show the existence and definition of both $\alpha$ and $D_<$.
 
 <div class="prop-block" markdown="1">
-** Lemma 1 **
+**Lemma 1**
 
 There exists a bijection $\alpha$ of the form $\mathbb{N} \mapsto \Omega$.
 </div>
 <div class="proof-block" markdown="1">
+**Proof of Lemma 1**
+
 It is clear that $\Omega$ is isomorphic to that of $\mathbb{Q}^2$,
     therefore it suffices to show that $\mathbb{Q}^2$ is denumerable.
 In particular,
@@ -416,19 +469,20 @@ Therefore there exists a bijection alpha $\alpha: \mathbb{N} \rightarrow \Omega$
 
 The function $v_\mathbb{Q}$ is that most natural mapping $\mathbb{N} \mapsto \mathbb{Q}$.
 Therefore $D_<$ can be described as those the set of natural three tuples for which the $d_{ch}(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k)$.
-From Lemma 1 it is clear that alpha will result in elements of $\Omega$,
+From **Lemma 1** it is clear that alpha will result in elements of $\Omega$,
     using the chordal metric $d_{ch}$ results in some distance $z \in \mathbb{C}$.
 Therefore the set $D_<$ is all those natural three tuples which result in a complex distance on $\widehat{\mathbb{C}}$ which is less than some rational mapping $v_\mathbb{Q}(k)$.
 
 <!-- TODO: The proof of D< is not complete yet -->
 <div class="prop-block" markdown="1">
-** Lemma 2 **
+**Lemma 2**
 
-There exists a partially computable function $D_<$.
+The set $D_<$ is recursively enumerable.
 </div>
 <div class="proof-block" markdown="1">
-The set $D_<$ is composed of those natural three-tuples,
-    such that Eq. $\eqref{def:D<}$ is true.
+**Proof of Lemma 2**
+
+The set $D_<$ defined by Eq. $\eqref{def:D<}$ is that set composed of natural triples satisfying the condition $d_{ch}(\alpha(i), \alpha(j)) < v_\mathbb{Q}$.
 
 $$
 \begin{equation} \label{def:D<}
@@ -436,26 +490,68 @@ $$
 \end{equation}
 $$
 
-The function $\alpha$ will always result in some point $x \in \Omega$.
-Limiting the image of the chordal metric to $\mathbb{R}$ as defined in Eq. $\eqref{def:dch}$.
+To prove a set $A$ is recursively enumerable one must show there exists a partially decidable predicate $x \in A$.
+In particular one must prove that some characteristic function $c_A$ exists defined as Eq. $\eqref{def:c_A}$ <d-cite key="cutland"></d-cite>.
 
 $$
-\begin{equation} \label{def:dch}
-    d_{ch}(z_1, z_2) = \frac{2|z_1 - z_2|}{\sqrt{(1 + |z_1|^2)(1 + |z_2|^2)}}, (z_1, z_2 \in \mathbb{Q})
+\begin{equation} \label{def:c_A}
+    c_A(x) = \begin{cases}
+        1, \quad &x \in A \\
+        \text{undefined}, \quad &x \notin A
+\end{cases}
 \end{equation}
 $$
 
-Thus ownership of $D_<$ is defined by those natural three tuples satisfying Eq. $\eqref{def:D<}$.
-Given sufficiently accurate upper bounds Eq. $\eqref{def:D<}$ is true for all but very few values.
+Notably that predicate defining ownership to a set must be decidable while that predicate of non ownership is undecidable.
+This means that **Lemma 2** sets out to prove $\langle i, j, k \rangle \in D_<$ is decidable.
+To this end the condition described above must be further investigated.
+The chordal metric $d_{ch}$ is defined as Eq. $\eqref{def:dch}$ via <d-cite key="conway"></d-cite>.
 
-A partially computable function is that function which computes a partially decidable predicate <d-cite key="cutland"></d-cite>.
-Notably a partially decidable predicate is one where the condition for ownership is known but non-ownership is not,
-    as is the case here.
-That is $x \in D_<$ is defined as above but $x \notin D_<$ is undefined.
-It has been proven that $D_<$ is partially decidable.
+$$
+\begin{equation} \label{def:dch}
+\begin{split}
+    d_{ch}(z_1, z_2) &= \frac{2|z_1 - z_2|}{\sqrt{(1 + |z_1|^2)(1 + |z_2|^2)}} \\
+    d_{ch}(z, \infty) &= \frac{2}{\sqrt{(1 + |z|^2)}} \rightarrow 0 \\
+    z_1,z_2,z &\in \mathbb{C}
+\end{split}
+\end{equation}
+$$
+
+It is clear that given $\alpha: \mathbb{N} \rightarrow \Omega$ we can track the result number ring of the image of $d_{ch}$.
+It is trivial to see that $d_{ch}$ given points from $\Omega$ results in numbers from $\mathbb{R}$.
+The objective is then to show there exists an algorithm which can show the real number resulting from $d_{ch}$ is less that $v_\mathbb{Q}$.
+Therefore the set $D_<$ has the characteristic function $c_{D_<}$ defined in Eq. $\eqref{def:c-D<}$.
+
+$$
+\begin{equation} \label{def:c-D<}
+    c_{D_<} = \begin{cases}
+        1,  \quad &\langle i, j, k \rangle \in D_< \\
+        \text{undefined}, \quad &\langle i, j, k \rangle \notin D_<
+    \end{cases}
+\end{equation}
+$$
+
+The algorithm that proves the decidability of $\langle i, j, k \rangle \in D_<$ is defined by Eq. $\eqref{def:pred-D<}$ for the case excluding the point $\infty$.
+
+$$
+\begin{equation} \label{def:pred-D<}
+\begin{split}
+    \langle i, j, k \rangle \in D_< &\iff d_{ch}(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k) \\
+    d_{ch}(\alpha(i), \alpha(j)) &:= \frac{2|\alpha(i) - \alpha(j)|}
+        {\sqrt{(1 + |\alpha(i)|^2)(1 + |\alpha(j)|^2)}}
+\end{split}
+\end{equation}
+$$
+
+For the point $\infty$ the chordal metric will always approach zero by Eq. $\eqref{def:dch}$,
+    therefore any rational number larger than zero works.
+Therefore the valid triples belonging to $D_<$ can be found via a trivial $n^3$ algorithm,
+    searching all combinations of numbers and checking the condition of Eq. $\eqref{def:pred-D<}$.
+
+By the above $D_<$ is proved to be recursively enumerable.
 </div>
 
-With the addition of Lemma 2 it has been proven that there exists a tuple $\bar{M}$ satisfying TTE.
+With the addition of **Lemma 2** it has been proven that there exists a tuple $\bar{M}$ satisfying TTE.
 </div>
 
 # Future work
@@ -478,3 +574,5 @@ The extensions of the use case for TTE are endless,
 7. $\exists x$: There "exists" some value $x$
 8. $v_\mathbb{Q}: \mathbb{N} \rightarrow \mathbb{Q}$: the standard numbering on $\mathbb{Q}$ inherited from <d-cite key="weihrauch_article"></d-cite>.
 9. $\mathbb{B}$: Baire space notation inherited from <d-cite key="weihrauch_article"></d-cite>.
+10. $x \notin A$: The element $x$ can not be found in the set $A$.
+11. $\bar{U}$: denoting the closure of set $U \subseteq X$ in the space $X$.
