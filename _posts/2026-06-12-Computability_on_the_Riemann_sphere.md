@@ -519,7 +519,8 @@ $$
 
 It is clear that given $\alpha: \mathbb{N} \rightarrow \Omega$ we can track the result number ring of the image of $d_{ch}$.
 It is trivial to see that $d_{ch}$ given points from $\Omega$ results in numbers from $\mathbb{R}$.
-The objective is then to show there exists an algorithm which can show the real number resulting from $d_{ch}$ is less that $v_\mathbb{Q}$.
+<!-- TODO: demonstrate the existance of this alg -->
+The objective is then to show that there exists an algorithm which can show the real number resulting from $d_{ch}(\alpha(i), \alpha(j))$ is less that $v_\mathbb{Q}(\alpha(k))$.
 Therefore the set $D_<$ has the characteristic function $c_{D_<}$ defined in Eq. $\eqref{def:c-D<}$.
 
 $$
@@ -531,22 +532,40 @@ $$
 \end{equation}
 $$
 
-The algorithm that proves the decidability of $\langle i, j, k \rangle \in D_<$ is defined by Eq. $\eqref{def:pred-D<}$ for the case excluding the point $\infty$.
+The algorithm that proves the decidability of $\langle i, j, k \rangle \in D_<$ is defined by Eq. $\eqref{def:pred-D<}$ for both cases of $d_{ch}$ (non-infinite and infinite).
 
 $$
 \begin{equation} \label{def:pred-D<}
 \begin{split}
     \langle i, j, k \rangle \in D_< &\iff d_{ch}(\alpha(i), \alpha(j)) < v_\mathbb{Q}(k) \\
     d_{ch}(\alpha(i), \alpha(j)) &:= \frac{2|\alpha(i) - \alpha(j)|}
-        {\sqrt{(1 + |\alpha(i)|^2)(1 + |\alpha(j)|^2)}}
+        {\sqrt{(1 + |\alpha(i)|^2)(1 + |\alpha(j)|^2)}} \\
+    d_{ch}(\alpha(i), \infty) &:= \frac{2}{\sqrt{1 + |\alpha(i)|^2}}
 \end{split}
 \end{equation}
 $$
 
-For the point $\infty$ the chordal metric will always approach zero by Eq. $\eqref{def:dch}$,
-    therefore any rational number larger than zero works.
-Therefore the valid triples belonging to $D_<$ can be found via a trivial $n^3$ algorithm,
-    searching all combinations of numbers and checking the condition of Eq. $\eqref{def:pred-D<}$.
+Concerning the predicate shown in Eq. $\eqref{def:pred-D<}$ it suffices to show that an algorithm exists that can construct the set $D_<$.
+One such algorithm would be to iterate through all the natural numbers including infinity and include the resulting element in $D_<$ depending on the condition.
+
+```
+function cond(i, j, k) {
+    if d_ch(alpha(i), alpha(j)) < v_Q(alpha(k))
+        return (i, j, k)
+    return None
+}
+
+function main() {
+    for i, j, k \in (\N union \infty){
+        if cond(i, j, k) != None
+            D_<.append(cond(i,j,k))
+    }
+}
+```
+The code snippet above presents an algorithm constructing the potentially infinite set $D_<$.
+Let `alpha` be the $\alpha$ function; let `\N` represent the natural numbers; finally let `\infty` represent infinity as a point $$\{ \infty \}$$.
+Notably this construction is not optimal though it does prove to show that such a construction is describable using the standard mechanistic logic (C-style pseudocode).
+Therefore the valid triples belonging to $D_<$ can be found via an $n^3$ algorithm searching all combinations of numbers and checking the condition of Eq. $\eqref{def:pred-D<}$.
 
 By the above $D_<$ is proved to be recursively enumerable.
 </div>
