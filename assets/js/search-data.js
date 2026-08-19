@@ -231,6 +231,16 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/savov/";
+            },},{id: "books-anlysis-ii",
+          title: 'Anlysis II',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/tao_analysis_2/";
+            },},{id: "books-anlysis-i",
+          title: 'Anlysis I',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/tao_anlysis_1/";
             },},{id: "news-i-created-this-new-blog-using-ruby-jekyll-and-al-folio-to-act-as-a-kind-of-writing-space-for-my-hobbies-and-research-needs",
           title: 'I created this new blog using Ruby/Jekyll and al-folio, to act as a...',
           description: "",
